@@ -1,0 +1,98 @@
+/* =========================================================
+   Portfólio Heloisa Borges · Página da Galeria
+   Cada trabalho é um card: antes e depois lado a lado em cima,
+   e os detalhes (o que foi feito, ferramentas, resumo) dentro do mesmo card, embaixo.
+   ========================================================= */
+
+#galeria{border-top:0}
+#galeria{--respiro:96px} /* respiro entre o último card e o rodapé */
+section.block#galeria>.inner{padding-top:32px;padding-bottom:var(--respiro)}
+#galeria .cabecalho{display:grid;gap:22px}
+#galeria .h2 span{font-style:italic;color:var(--cor-ciano)}
+.galeria__intro{max-width:62ch;color:var(--cor-texto-corpo);font-size:1rem;line-height:1.65}
+
+/* Voltar · rótulo 12px, caixa-alta, 0,2em, ciano */
+.voltar{display:inline-flex;align-items:center;gap:.5rem;justify-self:start;margin-bottom:24px;font-family:var(--fonte-texto);font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;line-height:1.4;color:var(--cor-ciano);text-decoration:none}
+.voltar svg{width:14px;height:14px;flex:none;transition:transform .3s}
+.voltar:hover svg{transform:translateX(-4px)}
+.voltar:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:4px}
+
+/* Lista de trabalhos */
+.trabalhos{display:grid;gap:48px}
+
+/* Card */
+.trabalho{background:var(--cor-superficie);border:1px solid var(--cor-linha);border-radius:2px;overflow:hidden}
+
+/* Fotos: antes | depois, separadas por uma linha */
+.trabalho__fotos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--cor-linha);border-bottom:1px solid var(--cor-linha)}
+.foto{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--cor-carvao)}
+.foto img,.foto__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.foto__img svg{width:100%;height:100%;display:block}
+
+/* Etiquetas Antes / Depois · detalhe DM Mono, caixa-alta */
+.etq{position:absolute;top:14px;left:14px;font-family:var(--fonte-mono);font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;line-height:1.4;padding:4px 8px;border-radius:2px;background:rgba(18,17,22,.8);border:1px solid var(--cor-linha);color:var(--cor-texto)}
+.etq--depois{color:var(--cor-ciano)}
+
+/* Detalhes dentro do card */
+.trabalho__info{padding:32px 36px 36px;display:grid;gap:28px}
+.trabalho__topo{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.trabalho__titulo{margin:0;font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.5rem,1.25rem + .9vw,1.875rem);line-height:1.2;color:var(--cor-texto)} /* 05 · título de projeto */
+.trabalho__num{font-family:var(--fonte-mono);font-size:13px;letter-spacing:.02em;line-height:1.4;color:var(--cor-texto-suave)} /* 21 · detalhe */
+.trabalho__dados{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,2fr);gap:24px 40px}
+.trabalho__dados>div{display:grid;gap:8px;align-content:start}
+.trabalho__dados>div+div{border-left:1px solid var(--cor-linha);padding-left:40px;margin-left:-20px}
+.trabalho__dados dt{font-family:var(--fonte-texto);font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;line-height:1.4;color:var(--cor-texto-suave)} /* 17 · rótulo */
+.trabalho__dados dd{margin:0;font-size:14px;line-height:1.65;color:var(--cor-texto-corpo)} /* 13 · texto pequeno */
+.trabalho__dados dd.ferramentas{font-family:var(--fonte-mono);font-size:13px;letter-spacing:.02em;line-height:1.4;color:var(--cor-ciano)} /* 21 · detalhe */
+
+/* Card da galeria em Projetos: imagem dividida ao meio (antes | depois) */
+.projeto__imagem--galeria{position:relative;display:block}
+.projeto__imagem--galeria .metade{position:absolute;top:0;bottom:0;width:50%;overflow:hidden}
+.projeto__imagem--galeria .metade:first-child{left:0}
+.projeto__imagem--galeria .metade:last-child{right:0;border-left:1px solid var(--cor-linha)}
+.projeto__imagem--galeria .metade>*{position:absolute;inset:0}
+.projeto__imagem--galeria svg{position:absolute;top:0;height:100%;width:200%}
+.projeto__imagem--galeria .metade:last-child svg{right:0}
+
+/* Telas menores */
+@media (max-width:900px){
+  .trabalho__dados{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .trabalho__dados>.resumo{grid-column:1/-1;border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--cor-linha);padding-top:20px}
+}
+@media (max-width:600px){
+  .trabalho__fotos{grid-template-columns:minmax(0,1fr)}
+  .trabalho__info{padding:24px 20px 28px;gap:22px}
+  .trabalho__dados{grid-template-columns:minmax(0,1fr);gap:18px}
+  .trabalho__dados>div+div{border-left:0;padding-left:0;margin-left:0;border-top:1px solid var(--cor-linha);padding-top:18px}
+  .trabalhos{gap:32px}
+}
+@media (max-width:720px){#galeria{--respiro:72px} section.block#galeria>.inner{padding-top:24px}}
+
+/* Botão "voltar ao topo" com anel de progresso
+   · aparece depois do título da galeria; o anel ciano fecha conforme a rolagem
+   · no computador fica centralizado na margem direita, fora das fotos
+   · nunca encosta no rodapé: sobe junto quando o rodapé entra na tela
+   · no celular fica menor, um pouco transparente, e some enquanto a pessoa rola para baixo */
+#galeria{position:relative}
+/* A área ocupa a coluna da margem direita e termina no meio do respiro final, qualquer que seja o tamanho da tela.
+   O botão é "sticky": acompanha a tela a 56px do pé e, no fim, para sozinho no meio do respiro, sem saltos. */
+.topo-area{--btn:52px;position:absolute;top:0;bottom:calc((var(--respiro) - var(--btn)) / 2);right:24px;width:var(--btn);display:flex;flex-direction:column;justify-content:flex-end;pointer-events:none;z-index:70}
+.topo-btn{position:sticky;bottom:56px;width:var(--btn);height:var(--btn);border:0;padding:0;border-radius:50%;background:rgba(18,17,22,.92);color:var(--cor-ciano);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s}
+.topo-btn.visivel{opacity:1;pointer-events:auto}
+/* telas sem margem lateral (celular): alvo de toque de 48px, afastado da borda e da barra do sistema */
+.topo-area.compacto{--btn:48px}
+.topo-btn.compacto{bottom:calc(32px + env(safe-area-inset-bottom,0px))}
+.topo-btn.compacto.visivel{opacity:.85}
+.topo-btn.oculto{opacity:0;pointer-events:none}
+.topo-btn:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:4px}
+.topo-btn .anel{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.topo-btn .anel .trilha{fill:none;stroke:var(--cor-linha);stroke-width:2}
+.topo-btn .anel .prog{fill:none;stroke:var(--cor-ciano);stroke-width:2;stroke-linecap:round}
+.topo-btn .seta-topo{position:relative;width:18px;height:18px;transition:transform .3s}
+.topo-btn:hover .seta-topo{transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.topo-btn,.topo-btn .seta-topo{transition:none}}
+
+/* Galeria (computador e celular): ao descer, o menu sobe junto com a página; ao subir, ele desce de volta.
+   O deslocamento vem do galeria.js; a animação só existe quando o menu reaparece. */
+header.nav.nav--anima{transition:transform .3s ease}
+@media (prefers-reduced-motion:reduce){header.nav.nav--anima{transition:none}}

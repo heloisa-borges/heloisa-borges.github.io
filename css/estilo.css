@@ -1,0 +1,322 @@
+/* =========================================================
+   Portfólio Heloisa Borges · Estilos do site
+   Depende de cores.css (cores) e tipografia.css (fontes), carregados antes.
+   ========================================================= */
+
+:root{color-scheme:dark}
+html,body{margin:0}
+html{background:#121116}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{background:var(--cor-carvao);color:var(--cor-texto);font:400 17px/1.65 var(--fonte-texto);-webkit-font-smoothing:antialiased}
+p{margin:0}
+a{color:inherit}
+.inner{max-width:1200px;margin:0 auto;padding-left:max(clamp(24px,7vw,112px),env(safe-area-inset-left,0px));padding-right:max(clamp(24px,7vw,112px),env(safe-area-inset-right,0px))}
+
+/* tipografia */
+.display{font-family:var(--fonte-titulo);font-weight:500;line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.h2{font-family:var(--fonte-titulo);font-weight:500;line-height:1;letter-spacing:-.005em;font-size:clamp(2.2rem,4.4vw,3.2rem);margin:0}
+.label{font-family:var(--fonte-mono);font-weight:500;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cor-texto-suave)}
+.label-secao{font-family:var(--fonte-texto);font-weight:500;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#B4B1BC} /* rótulo de seção: DM Sans Regular 12px, caixa-alta, 0,3em */
+
+/* faixa de aviso */
+
+/* navegação */
+/* Menu fixo: logo e menu ficam no topo ao rolar */
+header.nav{border-bottom:1px solid var(--cor-linha);position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(18,17,22,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:61;background:var(--cor-carvao)}
+html{scroll-padding-top:96px}
+@media (max-width:720px){html{scroll-padding-top:120px}}
+header.nav .inner{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:28px}
+.logo{font-family:var(--fonte-titulo);font-weight:600;font-size:1.45rem;line-height:1;text-decoration:none}
+.logo span{color:var(--cor-ciano)}
+nav ul{display:flex;gap:36px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{font-family:var(--fonte-mono);font-size:.8rem;text-decoration:none;color:var(--cor-texto)} /* menu sempre aceso, igual ao hover */
+nav a:hover{color:var(--cor-ciano)} /* hover do menu: texto em ciano */
+
+/* hero */
+.hero{position:relative;overflow:visible;
+  background:radial-gradient(70% 110% at 100% 0%, rgba(87,12,54,.95) 0%, rgba(87,12,54,.5) 38%, transparent 72%), var(--cor-carvao)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:32px 32px;
+  /* grade mais aparente, mas mais suave atrás do texto (lado esquerdo) e esmaecendo para baixo */
+  -webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(90deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,.4) 30%,#000 62%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(90deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,.4) 30%,#000 62%);mask-composite:intersect}
+.bezier{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.bz-curve{fill:none;stroke:var(--cor-ciano);stroke-opacity:.55;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.bz-handle line{stroke:var(--cor-texto-suave);stroke-opacity:.45;stroke-width:1;vector-effect:non-scaling-stroke}
+.bz-handle circle{fill:var(--cor-carvao);stroke:var(--cor-texto-suave);stroke-opacity:.7;stroke-width:1;vector-effect:non-scaling-stroke}
+.bz-active line{stroke:var(--cor-ciano);stroke-opacity:.6}
+.bz-active circle{stroke:var(--cor-ciano);stroke-opacity:.9}
+.bz-anchor{fill:var(--cor-carvao);stroke:var(--cor-ciano);stroke-opacity:.8;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.bz-selected{fill:var(--cor-ciano);stroke-opacity:1}
+@media (max-width:720px){.bezier{opacity:.45}}
+.hero .inner{position:relative;padding-block:140px 120px;display:grid;gap:32px}
+.hero .display{font-size:clamp(3rem,8vw,6.2rem)}
+.hero .display em{font-style:italic;color:var(--cor-ciano)}
+.roles{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--fonte-mono);font-size:.76rem;padding:6px 10px;border:1px solid var(--cor-linha);border-radius:2px;color:var(--cor-texto);background:var(--cor-superficie)} /* mesmo fundo das tags de ferramentas */
+.hero .lead{font-size:clamp(1rem,.95rem + .25vw,1.125rem);line-height:1.65;color:var(--cor-texto);max-width:34ch;text-wrap:balance}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fonte-texto);font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 22px;border-radius:2px}
+.btn-primary{background:var(--cor-ciano);color:var(--cor-carvao);box-shadow:0 0 22px -6px var(--cor-ciano)}
+.btn-primary:hover{background:var(--cor-ciano-hover)}
+.btn-ghost{color:var(--cor-texto);box-shadow:inset 0 0 0 1px var(--cor-linha)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--cor-texto-suave)}
+.btn:focus-visible,nav a:focus-visible,.logo:focus-visible{outline:none;box-shadow:0 0 0 2px var(--cor-carvao),0 0 0 4px var(--cor-ciano)}
+.status{display:flex;align-items:center;gap:10px;font-family:var(--fonte-mono);font-size:.78rem;color:var(--cor-texto-suave)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--cor-ciano);box-shadow:0 0 12px var(--cor-ciano)}
+
+/* seções */
+section.block{border-top:1px solid var(--cor-linha)}
+#sobre{border-top:0;position:relative} /* sem divisão: a curva do topo vaza para o Sobre e passa por trás do texto */
+section.block>.inner{padding-block:128px;display:grid;gap:64px}
+
+/* sobre */
+/* Teste: no Sobre, título em DM Sans e subtítulo em Cormorant Garamond */
+.photo-slot{aspect-ratio:4/5;max-width:100%;position:relative;border:1px solid var(--cor-linha);background:linear-gradient(160deg,rgba(87,12,54,.55) 0%,var(--cor-superficie) 55%,var(--cor-carvao) 100%);display:grid;place-items:center;overflow:hidden}
+.photo-slot::before,.photo-slot::after{content:"";position:absolute;width:22px;height:22px;border-color:var(--cor-ciano);border-style:solid;opacity:.7}
+.photo-slot::before{top:14px;left:14px;border-width:1px 0 0 1px}
+.photo-slot::after{bottom:14px;right:14px;border-width:0 1px 1px 0}
+.photo-slot span{font-family:var(--fonte-mono);font-size:.75rem;color:var(--cor-texto-suave);text-align:center;line-height:1.6}
+/* foto recortada (sem fundo) por cima do degradê; o contorno e os cantos em ciano ficam por cima da foto */
+.photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.photo-slot::before,.photo-slot::after{z-index:1}
+
+/* projetos */
+
+/* ferramentas e formação */
+
+/* contato */
+footer .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--fonte-mono);font-size:.75rem;color:var(--cor-texto-suave)}
+
+/* Sobre, Contato e Rodapé (trazidos do projeto Lovable, nas cores deste projeto) */
+#sobre .cabecalho,.contato{display:grid;gap:22px}
+#sobre .h2 span,.contato .h2 span{font-style:italic;color:var(--cor-ciano)}
+.sobre{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
+.sobre__foto{width:100%}
+.sobre__texto{display:grid;gap:22px;min-width:0}
+.sobre__texto>p{color:var(--cor-texto-corpo);line-height:1.7;max-width:62ch}
+.formacao strong{font-weight:500;color:var(--cor-texto)}
+.diferencial{border-left:2px solid var(--cor-vinho-aceso);background:var(--cor-superficie);padding:2rem;display:grid;gap:12px;margin-top:1rem}
+.diferencial p{color:var(--cor-texto-corpo);line-height:1.7;font-size:.98rem} /* mesma cor do texto corrido */
+.subtitulo{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.5rem,1.2rem + .9vw,1.9rem);line-height:1.2;margin:0}
+.detalhes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;padding-top:64px;border-top:1px solid var(--cor-linha)}
+.detalhes__col{display:grid;gap:16px;align-content:start;min-width:0}
+.detalhes__col .subtitulo{margin-bottom:8px}
+.ferramentas{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 16px;padding:0}
+.ferramentas li{font-size:.9rem;padding:.45rem .9rem;background:var(--cor-superficie);border:1px solid var(--cor-linha);border-radius:2px;color:var(--cor-texto)}
+.formacao{list-style:none;margin:0;padding:0}
+.formacao li{display:flex;justify-content:space-between;gap:1.5rem;padding:1rem 0;border-bottom:1px solid var(--cor-linha);font-size:.95rem;color:var(--cor-texto-suave)}
+.formacao li:first-child{padding-top:0}
+.formacao li span:last-child{white-space:nowrap;font-family:var(--fonte-mono);font-size:.8rem;color:var(--cor-ciano)}
+.fora{display:grid;gap:32px;padding-top:64px}
+.fora__itens{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}
+@media (max-width:1100px){.fora__itens{grid-template-columns:repeat(2,minmax(0,1fr))}} /* telas menores: 2 colunas */
+.fora__itens>div{background:var(--cor-superficie);border:1px solid var(--cor-linha);border-radius:2px;padding:28px;min-width:0} /* tópicos de Fora das telas em caixas */
+.fora h4{font-family:var(--fonte-titulo);font-weight:500;font-size:1.3rem;margin:0 0 .5rem;color:var(--cor-texto)}
+.fora p{font-size:.95rem;line-height:1.65;color:var(--cor-texto-suave)}
+.contato-sec{background:var(--cor-superficie)}
+.contato{max-width:42rem;margin:0 auto;text-align:center;justify-items:center}
+.contato__texto{color:var(--cor-texto-suave);line-height:1.7;max-width:30rem}
+.contato__email{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:.5rem 1rem}
+.contato__end{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.3rem,.9rem + 1.5vw,2rem);overflow-wrap:anywhere;border-bottom:1px solid var(--cor-linha);user-select:all}
+.copiar{font:inherit;background:none;border:0;cursor:pointer;font-family:var(--fonte-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano)}
+.copiar:hover{color:var(--cor-texto)}
+.copiar:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:4px}
+.contato__botoes{justify-content:center}
+.rodape .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+.rodape__logo{font-family:var(--fonte-titulo);font-weight:600;font-size:1.3rem}
+.rodape__logo span{color:var(--cor-ciano)}
+.rodape p{font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.05em;color:var(--cor-texto-suave)}
+@media (max-width:860px){.sobre{gap:48px}}
+@media (max-width:720px){.fora__itens{grid-template-columns:minmax(0,1fr);gap:1rem}} /* celular: 1 coluna */
+@media (max-width:720px){.sobre,.detalhes{grid-template-columns:minmax(0,1fr);gap:40px}.sobre__foto{max-width:22rem}.detalhes,.fora{padding-top:48px}}
+/* Projetos (layout trazido do projeto Lovable, nas cores deste projeto) */
+#projetos .cabecalho{display:grid;gap:22px}
+#projetos .h2 span{font-style:italic;color:var(--cor-ciano)}
+.filtros{display:flex;flex-wrap:wrap;gap:.75rem 2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cor-linha)}
+.filtros button{font:inherit;background:none;border:0;cursor:pointer;font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-texto-suave);padding:0 0 .25rem;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.filtros button:hover{color:var(--cor-texto)}
+.filtros button[aria-pressed="true"]{color:var(--cor-ciano);border-color:var(--cor-ciano)}
+.filtros button:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:4px}
+.projetos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4rem 2.5rem}
+.projeto{min-width:0}
+.projeto[hidden]{display:none}
+.projeto.entrando{animation:entrar .5s ease both}
+@keyframes entrar{from{opacity:.2;transform:translateY(.75rem)}to{opacity:1;transform:none}}
+.projeto__link{display:flex;flex-direction:column;height:100%;text-decoration:none}
+.projeto__link:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:6px}
+.projeto__imagem{aspect-ratio:4/3;max-width:100%;overflow:hidden;border:1px solid var(--cor-linha);background:linear-gradient(135deg,rgba(87,12,54,.6),var(--cor-superficie) 60%,var(--cor-carvao));margin-bottom:1.5rem;display:grid;place-items:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.projeto__imagem span{font-family:var(--fonte-mono);font-size:.72rem;color:var(--cor-texto-suave)}
+.projeto__link:hover .projeto__imagem{transform:scale(1.01)}
+.projeto__meta{display:flex;align-items:baseline;gap:1rem;margin-bottom:.75rem}
+.projeto__area{font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano)}
+.projeto__titulo{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.5rem,1.25rem + .9vw,1.875rem);line-height:1.2;margin:0 0 .75rem;color:var(--cor-texto);transition:color .3s;text-wrap:balance}
+.projeto__link:hover .projeto__titulo{color:var(--cor-ciano)}
+.projeto__resumo{font-size:.95rem;line-height:1.65;color:var(--cor-texto-suave);margin-bottom:1.25rem}
+@media (max-width:720px){.projetos{grid-template-columns:minmax(0,1fr);gap:3.5rem}.filtros{gap:.75rem 1.5rem}}
+@media (prefers-reduced-motion:reduce){.projeto.entrando{animation:none}}
+/* Áreas de atuação (trazida do projeto Lovable, nas cores deste projeto) */
+.areas-sec{background:var(--cor-superficie)}
+.areas-sec .cabecalho{display:grid;gap:22px}
+.areas-sec .h2 span{font-style:italic;color:var(--cor-ciano)}
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--cor-linha);border:1px solid var(--cor-linha)}
+.area{display:flex;flex-direction:column;background:var(--cor-superficie);padding:2.5rem;text-decoration:none;transition:background-color .4s;min-width:0} /* fundo na cor da seção */
+.area:hover,.area:focus-visible{background:var(--cor-carvao)} /* hover: fundo escurece */
+.area:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--cor-ciano)}
+.area__num{font-family:var(--fonte-titulo);font-weight:500;font-size:2.25rem;line-height:1;color:var(--cor-ciano);transition:color .5s} /* número sempre aceso */
+.area:hover .area__num,.area:focus-visible .area__num{color:var(--cor-ciano)}
+.area h3{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.3;margin:1.5rem 0 1rem;color:var(--cor-texto)}
+.area p{font-size:.95rem;line-height:1.65;color:var(--cor-texto-suave)}
+.area__ver{margin-top:auto;padding-top:1.5rem;font-family:var(--fonte-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano);opacity:0;transform:translateX(-.25rem);transition:opacity .4s,transform .4s} /* aparece só no hover */
+.area:hover .area__ver,.area:focus-visible .area__ver{opacity:1;transform:none}
+@media (hover:none){.area__ver{opacity:1;transform:none}}
+@media (max-width:720px){.areas{grid-template-columns:minmax(0,1fr)}.area{padding:2rem}}
+
+/* ficha tipográfica */
+@media (max-width:720px){
+  nav ul{gap:18px}
+  section.block>.inner{padding-block:88px;gap:48px}
+  .hero .inner{padding-block:96px 80px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== Padrão DM Mono: dois estilos para todo o portfólio ===== */
+/* Rótulo mono · Medium 500 · 12px · caixa-alta · espaçamento 0,15em · entrelinha 1,4 */
+.label:not(.label-secao),.filtros button,.projeto__area,.area__ver,.copiar{
+  font-family:var(--fonte-mono);font-weight:500;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;line-height:1.4}
+/* Detalhe mono · Regular 400 · 13px · caixa normal · espaçamento 0,02em · entrelinha 1,5 */
+nav a,.chip,.status,.formacao li span:last-child,.rodape p,.photo-slot span,.projeto__imagem span{
+  font-family:var(--fonte-mono);font-weight:400;font-size:.8125rem;letter-spacing:.02em;text-transform:none;line-height:1.5}
+
+/* Rótulo (antes em DM Mono) agora em DM Sans · Medium 500 · 12px · caixa-alta · 0,15em */
+.label:not(.label-secao),.area__ver,.copiar{font-family:var(--fonte-texto)}
+/* "Disponível para novos projetos" de volta ao estilo original em DM Mono */
+.hero .status{font-family:var(--fonte-mono);font-weight:400;font-size:.78rem;letter-spacing:0;line-height:1.65}
+/* Teste: menu, filtros e categorias em DM Sans · Regular 400 · 12px · caixa-alta · 0,2em */
+nav a,.filtros button,.projeto__area{font-family:var(--fonte-texto);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;line-height:1.4}
+/* ===== Ajustes do sistema tipográfico (20/10) ===== */
+/* Cormorant Garamond */
+.hero .display{font-weight:500;font-size:clamp(3rem,8vw,6.2rem)}                             /* Display · Medium 500 · 48–99px */
+.h2{font-weight:400;font-size:clamp(1.875rem,1.3rem + 2.4vw,3rem)}                           /* Título de seção · Light 300 · 30–48px */
+.subtitulo{font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.3}                    /* Subtítulo · 20–24px · 1,3 */
+.contato__end{font-size:clamp(1.125rem,.85rem + 1.4vw,1.875rem)}                              /* E-mail · 18–30px */
+.rodape__logo{font-family:var(--fonte-titulo);font-weight:600;font-size:1.45rem;line-height:1;color:var(--cor-texto)} /* Logo do rodapé = logo do menu, inclusive na cor */
+/* DM Sans */
+.fora h4{font-family:var(--fonte-texto);font-weight:400;font-size:1.125rem;line-height:1.35}  /* Título pequeno · DM Sans Regular 400 · 18px */
+.hero .lead{font-size:clamp(1rem,.95rem + .25vw,1.125rem);line-height:1.65}                  /* Abertura · 16–18px · 1,65 */
+.sobre__texto>p,.contato__texto{font-size:1rem;font-weight:400}                               /* Texto · Regular 400 · 16px */
+.diferencial p{font-size:.875rem;line-height:1.65}                                            /* Texto do Diferencial · 14px · 1,65 */
+.area p,.projeto__resumo,.fora p,.formacao li{font-size:.875rem;line-height:1.65}             /* Texto pequeno · 14px · 1,65 */
+.btn{font-size:.8125rem;line-height:1.65}                                                     /* Botão · 13px · 1,65 */
+.btn .seta{width:16px;height:16px;flex:none;display:block}
+.label-secao{letter-spacing:.2em}                                                             /* Rótulo de seção · 0,2em */
+.rodape p{font-family:var(--fonte-texto)}                                                     /* Texto do rodapé · DM Sans */
+/* DM Mono */
+.diferencial .label{font-family:var(--fonte-mono)}                                            /* Rótulo do Diferencial · DM Mono */
+
+/* ===== Padronização final do sistema tipográfico (20/10) ===== */
+body{font-size:16px;line-height:1.65}                                                         /* 9 · base 16px */
+/* Entrelinhas: 1,0 títulos grandes · 1,2 títulos médios e pequenos · 1,4 rótulos e detalhes · 1,65 texto */
+.hero .display,.h2,.area__num,.logo,.rodape__logo{line-height:1}
+.projeto__titulo,.contato__end,.fora h4{line-height:1.2}
+.subtitulo,.area h3{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.2} /* 1 · subtítulo = título de área */
+.hero .lead{font-size:clamp(1.125rem,1.05rem + .3vw,1.25rem);line-height:1.65}               /* 2 · abertura 18–20px */
+.sobre__texto>p,.contato__texto,.diferencial p{font-size:1rem;line-height:1.65}               /* 1, 2 · texto e Diferencial 16px */
+.area p,.projeto__resumo,.fora p,.formacao li,.ferramentas li{font-size:.875rem;line-height:1.65} /* 6 · texto pequeno e ferramentas 14px */
+.label-secao{line-height:1.4;color:var(--cor-rotulo)}                                         /* 10 · cor do rótulo como token */
+nav a,.filtros button,.projeto__area{line-height:1.4}
+.label:not(.label-secao),.area__ver,.copiar{letter-spacing:.2em;line-height:1.4} /* 3 · rótulos em 0,2em */
+.diferencial .label{letter-spacing:.2em}                                                      /* Rótulo do Diferencial · DM Mono · 0,2em */
+.btn,.rodape p{line-height:1.4}
+.btn-primary{font-weight:700}                                                                  /* Botões principais (Ver projetos, LinkedIn) · Bold 700 */
+.btn-ghost{font-weight:500}                                                                   /* Botão de contorno · Medium 500 para compensar a irradiação do texto claro no fundo escuro */
+.chip,.formacao li span:last-child,.photo-slot span,.projeto__imagem span{line-height:1.4}
+.hero .status{font-size:.8125rem;letter-spacing:.02em;line-height:1.4}                       /* 4 · status igual aos detalhes mono */
+
+/* Proporção áurea no topo: mesma linguagem de linhas finas da grade e da curva de Bézier */
+.au-grid line{fill:none;stroke:var(--cor-texto-suave);stroke-opacity:.42;stroke-width:1;vector-effect:non-scaling-stroke}
+.au-espiral{fill:none;stroke:var(--cor-ciano);stroke-opacity:.3;stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:4 5}
+
+/* Subtítulo de bloco · Ferramentas, Formação, Fora das telas
+   Mesmo estilo do subtítulo + traço curto de 24 × 2px no vinho aceso (a mesma cor da lateral do Diferencial) */
+.subtitulo-bloco::after{content:"";display:block;width:24px;height:2px;margin-top:14px;background:var(--cor-vinho-aceso)}
+/* Menu: sublinhado vinho aceso na seção em que a pessoa está */
+header.nav nav a{display:inline-block;padding-bottom:6px;border-bottom:2px solid transparent;transition:border-color .3s,color .3s}
+header.nav nav a.ativo{border-bottom-color:var(--cor-vinho-aceso)}
+
+/* Áreas: mesma seta do botão do início, ajustada ao rótulo de 12px */
+.area__ver{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start}
+.area__ver .seta{width:14px;height:14px;flex:none;display:block}
+
+/* Subtítulo e subtítulo de bloco · Cormorant SemiBold 600 */
+.subtitulo,.area h3{font-weight:600}
+
+/* Fora das telas · ícones Material Design Icons (Pictogrammers, licença Apache 2.0) acima dos títulos */
+.fora__icone{display:block;width:32px;height:32px;margin-bottom:20px;color:var(--cor-ciano)}
+
+/* Rótulo de seção · 14px (os demais rótulos seguem em 12px) */
+.label-secao{font-size:14px}
+
+/* Filtros de Projetos iguais ao menu: texto aceso, hover em ciano, barra de 2px (em ciano) no ativo */
+.filtros button{color:var(--cor-texto);padding:0 0 6px;border-bottom:2px solid transparent}
+.filtros button:hover{color:var(--cor-ciano)}
+.filtros button[aria-pressed="true"]{color:var(--cor-ciano);border-bottom-color:var(--cor-ciano)} /* filtro selecionado: texto e barra em ciano */
+
+/* Logo (menu e rodapé) · Cormorant Bold 700 · 25px · 0,02em, para melhor legibilidade */
+.logo,.rodape__logo{font-weight:700;font-size:25px;letter-spacing:.02em}
+
+/* Cards de projeto: imagem, título com seta, resumo. Sem tags e sem botão; nada escondido no hover */
+.projeto__topo{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.75rem}
+.projeto__topo .projeto__titulo{margin:0}
+.projeto__seta{flex:none;width:20px;height:20px;margin-top:.3em;color:var(--cor-ciano);transition:transform .3s}
+.projeto__link:hover .projeto__seta,.projeto__link:focus-visible .projeto__seta{transform:translateX(4px)}
+.projeto__resumo{margin-bottom:0}
+
+/* Cards de projeto com contorno: imagem encostada no topo, texto com respiro interno */
+.projeto__link{border:1px solid var(--cor-linha);border-radius:2px;overflow:hidden}
+.projeto__imagem{border:0;border-bottom:1px solid var(--cor-linha);margin-bottom:0}
+.projeto__meta,.projeto__topo,.projeto__resumo{margin-left:28px;margin-right:28px}
+.projeto__meta{margin-top:24px}
+.projeto__resumo{margin-bottom:28px}
+@media (max-width:720px){.projeto__meta,.projeto__topo,.projeto__resumo{margin-left:20px;margin-right:20px}.projeto__meta{margin-top:20px}.projeto__resumo{margin-bottom:22px}}
+
+/* Abertura · DM Sans Regular 400 em cinza suave, para não disputar com o nome */
+.hero .lead{font-weight:400;color:var(--cor-texto-suave)}
+
+/* Grade de pixels · células de 24px (múltiplo de 8) */
+.hero::before{background-size:24px 24px}
+/* Brilho ciano da grade que acompanha o mouse. Só existe no triângulo acima da diagonal
+   (canto superior esquerdo → inferior direito), com transição longa na linha; o texto fica fora do efeito */
+.hero__luz{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .9s ease;--x:50%;--y:50%;
+  background-image:linear-gradient(rgba(143,211,222,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(143,211,222,.55) 1px,transparent 1px);background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(circle 170px at var(--x) var(--y),#000 0%,rgba(0,0,0,.35) 45%,transparent 100%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);
+  -webkit-mask-composite:source-in;
+  mask-image:radial-gradient(circle 170px at var(--x) var(--y),#000 0%,rgba(0,0,0,.35) 45%,transparent 100%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);
+  mask-composite:intersect}
+.hero.luz-ativa .hero__luz{opacity:1}
+@media (hover:none){.hero__luz{display:none}}
+
+/* Linhas divisórias: entre Ferramentas e Formação, e acima de Fora das telas */
+.detalhes{column-gap:0}
+.detalhes__col:first-child{padding-right:40px}
+.detalhes__col+.detalhes__col{border-left:1px solid var(--cor-linha);padding-left:40px}
+.fora{border-top:1px solid var(--cor-linha)}
+@media (max-width:720px){
+  .detalhes{row-gap:0}
+  .detalhes__col:first-child{padding-right:0;padding-bottom:40px}
+  .detalhes__col+.detalhes__col{border-left:0;padding-left:0;border-top:1px solid var(--cor-linha);padding-top:40px}
+}
+
+/* Rodapé · texto pequeno: DM Sans Regular 400 · 14px · entrelinha 1,65 */
+.rodape p{font-size:14px;letter-spacing:normal;line-height:1.65}
+
+/* Rodapé: a linha ocupa a largura toda, igual à linha do menu */
+footer.rodape{border-top:1px solid var(--cor-linha)}
+footer.rodape .inner{border-top:0}
+/* Menu no celular: respiros menores (de ~130px para ~100px de altura) */
+@media (max-width:720px){
+  header.nav .inner{padding-block:16px 12px;row-gap:12px}
+  html{scroll-padding-top:100px}
+}

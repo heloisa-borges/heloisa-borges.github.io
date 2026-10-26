@@ -1,0 +1,34 @@
+/* =========================================================
+   Portfólio Heloisa Borges · Cartela de cores
+   Carvão, Vinho & Ciano-gelo
+   ========================================================= */
+
+:root {
+  /* Base */
+  --cor-carvao:        #121116; /* fundo principal */
+  --cor-superficie:    #1C1B21; /* faixas de seção, cards, caixas, etiquetas */
+  --cor-linha:         #2A2830; /* bordas, divisórias, grade */
+
+  /* Marca */
+  --cor-vinho:         #570C36; /* brilho do topo e fundo das imagens provisórias. Nunca texto (1,4:1 sobre o carvão) */
+  --cor-vinho-aceso:   #8A1F5C; /* detalhes finos: traço dos subtítulos, menu ativo, lateral do Diferencial. Nunca texto (2,2:1) */
+
+  /* Destaque */
+  --cor-ciano:         #8FD3DE; /* botões, links, filtros, setas, ícones, nome. 11,2:1 sobre o carvão */
+  --cor-ciano-hover:   #B3E4EC; /* hover do botão principal */
+  --cor-ciano-suave:   rgba(143, 211, 222, 0.12);
+
+  /* Texto */
+  --cor-texto:         #ECEAF0; /* títulos, menu, logo. 15,7:1 sobre o carvão */
+  --cor-texto-corpo:   #D6D3DC; /* texto corrido: Sobre e Diferencial. 12,7:1 */
+  --cor-rotulo:        #B4B1BC; /* rótulos de seção. 8,9:1 */
+  --cor-texto-suave:   #9C99A6; /* abertura, resumos, legendas, metadados. 6,7:1 */
+}
+
+/* Regras de uso
+   1. Item ativo: o rosa (--cor-vinho-aceso) marca ONDE VOCÊ ESTÁ na página (seção ativa no menu).
+      O ciano marca O QUE ESTÁ SELECIONADO dentro de um grupo (filtro ativo em Projetos).
+   2. Hover: menu e filtros passam do branco para o ciano.
+   3. O vinho e o vinho aceso nunca são usados como cor de texto.
+   4. Texto escuro (--cor-carvao) só sobre o ciano, no botão principal (11,2:1).
+*/

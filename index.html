@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Heloisa Borges · Design Gráfico e UX/UI</title>
+<meta name="description" content="Portfólio de Heloisa Borges: design gráfico, branding, edição de imagem, UX/UI e service design.">
+<meta name="theme-color" content="#121116">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/cores.css">
+<link rel="stylesheet" href="css/tipografia.css">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/galeria.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="inner">
+    <a class="logo" href="#inicio">Heloisa<span>.</span>Borges</a>
+    <nav aria-label="Principal"><ul><li><a href="#sobre">Sobre</a></li><li><a href="#areas">Áreas</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#contato">Contato</a></li></ul></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero__luz" aria-hidden="true"></div>
+    <svg class="bezier" viewBox="0 0 1200 640" preserveAspectRatio="xMaxYMin slice" aria-hidden="true">
+      <!-- proporção áurea: retângulo 1 : 1,618 com quadrados de Fibonacci e espiral.
+           O olho da espiral coincide com a âncora selecionada da curva de Bézier (920, 300). -->
+      <g class="au" transform="translate(340 664.5) scale(0.5 -0.5)">
+        <g class="au-grid">
+          <!-- contorno aberto e sem as linhas do quadrado inferior; a espiral começa na âncora inicial da curva de Bézier (560, 600) -->
+          <line x1="1618" y1="618" x2="1618" y2="1000"/>
+          <line x1="1000" y1="1000" x2="1618" y2="1000"/>
+          <line x1="1000" y1="618" x2="1000" y2="1000"/>
+          <line x1="1000" y1="618" x2="1618" y2="618"/>
+          <line x1="1236" y1="618" x2="1236" y2="1000"/>
+          <line x1="1000" y1="764" x2="1236" y2="764"/>
+          <line x1="1146" y1="618" x2="1146" y2="764"/>
+          <line x1="1146" y1="708" x2="1236" y2="708"/>
+          <line x1="1180" y1="708" x2="1180" y2="764"/>
+          <line x1="1146" y1="730" x2="1180" y2="730"/>
+        </g>
+        <path class="au-espiral" d="M440 129 A1000 1000 0 0 1 1000 0 A618 618 0 0 1 1618 618 A382 382 0 0 1 1236 1000 A236 236 0 0 1 1000 764 A146 146 0 0 1 1146 618 A90 90 0 0 1 1236 708 A56 56 0 0 1 1180 764 A34 34 0 0 1 1146 730"/>
+      </g>
+      <!-- curva de Bézier com âncoras e alças, como na ferramenta caneta -->
+      <path class="bz-curve" d="M560 600 C720 600 760 262 920 300 C1080 338 1100 120 1180 60"/>
+      <g class="bz-handle"><line x1="560" y1="600" x2="720" y2="600"/><circle cx="720" cy="600" r="5"/></g>
+      <g class="bz-handle bz-active"><line x1="760" y1="262" x2="1080" y2="338"/><circle cx="760" cy="262" r="5.5"/><circle cx="1080" cy="338" r="5.5"/></g>
+      <g class="bz-handle"><line x1="1180" y1="60" x2="1100" y2="120"/><circle cx="1100" cy="120" r="5"/></g>
+      <rect class="bz-anchor" x="554" y="594" width="12" height="12"/>
+      <rect class="bz-anchor bz-selected" x="913" y="293" width="14" height="14"/>
+      <rect class="bz-anchor" x="1174" y="54" width="12" height="12"/>
+    </svg>
+    <div class="inner">
+      <h1 class="display">Olá, meu nome é<br><em style="white-space:nowrap">Heloisa Borges</em></h1>
+      <div class="roles"><span class="chip">Design Gráfico</span><span class="chip">UX/UI Design</span></div>
+      <p class="lead">Crio soluções visuais que equilibram estética, clareza e estratégia.</p>
+      <div class="actions"><a class="btn btn-primary" href="#projetos">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="btn btn-ghost" href="#sobre">Currículo</a></div>
+      <span class="status"><i></i>Disponível para novos projetos</span>
+    </div>
+  </section>
+
+  <section class="block" id="sobre" aria-labelledby="h-sobre">
+    <div class="inner">
+      <div class="cabecalho">
+        <span class="label label-secao">Sobre</span>
+        <h2 class="h2" id="h-sobre">Entre a estética<br><span>e a estratégia.</span></h2>
+      </div>
+
+      <div class="sobre">
+        <div class="sobre__foto photo-slot"><img src="img/foto-heloisa-960.webp" srcset="img/foto-heloisa-480.webp 480w, img/foto-heloisa-960.webp 960w, img/foto-heloisa-1600.webp 1600w" sizes="(max-width: 720px) 22rem, 460px" width="1600" height="2000" alt="Foto de Heloisa Borges" loading="lazy" decoding="async"></div>
+        <div class="sobre__texto">
+          <p>Para mim, o design nasce da observação e da curiosidade. Antes de qualquer traço, busco entender o contexto, as pessoas e o problema real a ser resolvido.</p>
+          <p>O que mais me move é criar: montar composições, testar combinações de cor e forma, escolher a tipografia certa, diagramar, escolher o grid, aplicar os princípios do design e ver um projeto ganhar vida. É criando que eu perco a noção do tempo.</p>
+          <p>A graduação em Design Gráfico no Senac, aliada à minha formação e experiência em UX/UI, produtos digitais e service design, me dá uma visão holística dos projetos. Sei navegar com facilidade entre análise de dados, estratégia e criação visual.</p>
+          <p>Enxergo o design como uma ferramenta estratégica de comunicação, transformação e resolução de problemas. Meu trabalho é guiado por método, clareza e intenção: onde a estética encanta e a função resolve.</p>
+          <div class="diferencial">
+            <span class="label" style="color:var(--cor-ciano)">Diferencial</span>
+            <p>Com bacharelado em Ciências Econômicas e estudos em Economia Comportamental, tenho um olhar treinado sobre o comportamento humano e os processos de tomada de decisão. Trago esse repertório para o design, criando peças mais persuasivas e produtos digitais mais intuitivos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detalhes">
+        <div class="detalhes__col">
+          <h3 class="subtitulo subtitulo-bloco">Ferramentas</h3>
+          <span class="label">Criação</span>
+          <ul class="ferramentas"><li>Photoshop</li><li>Illustrator</li><li>InDesign</li><li>Figma</li></ul>
+          <span class="label">Colaboração e gestão</span>
+          <ul class="ferramentas"><li>Miro</li><li>Trello</li><li>Jira</li><li>Confluence</li><li>G Suite</li><li>SQL</li></ul>
+          <span class="label">Inteligência artificial</span>
+          <ul class="ferramentas"><li>ChatGPT</li><li>Claude</li><li>Gemini</li><li>Lovable</li></ul>
+        </div>
+        <div class="detalhes__col">
+          <h3 class="subtitulo subtitulo-bloco">Formação</h3>
+          <ul class="formacao">
+            <li><span><strong>Tecnólogo em Design Gráfico</strong> · Senac</span><span>Cursando</span></li>
+            <li><span><strong>Formação em UX/UI Design</strong> · Awari</span><span>2024</span></li>
+            <li><span><strong>Bacharelado em Ciências Econômicas</strong> · Unicesumar</span><span>2023</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fora">
+        <h3 class="subtitulo subtitulo-bloco">Fora das telas</h3>
+        <div class="fora__itens">
+          <div><svg class="fora__icone" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path fill="currentColor" d="M8.35 3c1.18-.17 2.43 1.12 2.79 2.9c.36 1.77-.29 3.35-1.47 3.53c-1.17.18-2.43-1.11-2.8-2.89c-.37-1.77.3-3.35 1.48-3.54m7.15 0c1.19.19 1.85 1.77 1.5 3.54c-.38 1.78-1.63 3.07-2.81 2.89c-1.19-.18-1.84-1.76-1.47-3.53c.36-1.78 1.61-3.07 2.78-2.9M3 7.6c1.14-.49 2.69.4 3.5 1.95c.76 1.58.5 3.24-.63 3.73s-2.67-.39-3.46-1.96S1.9 8.08 3 7.6m18 0c1.1.48 1.38 2.15.59 3.72s-2.33 2.45-3.46 1.96s-1.39-2.15-.63-3.73C18.31 8 19.86 7.11 21 7.6m-1.67 10.78c.04.94-.68 1.98-1.54 2.37c-1.79.82-3.91-.88-5.9-.88s-4.13 1.77-5.89.88c-1-.49-1.69-1.79-1.56-2.87c.18-1.49 1.97-2.29 3.03-3.38c1.41-1.41 2.41-4.06 4.42-4.06c2 0 3.06 2.61 4.41 4.06c1.11 1.22 2.96 2.25 3.03 3.88"/></svg><h4>Mãe de pet apegada</h4><p>Amo viajar, de preferência para lugares com praia ou cachoeira — mas a saudade do Oliver e da Jade, meus gatos, faz com que as viagens sejam curtas.</p></div>
+          <div><svg class="fora__icone" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path fill="currentColor" d="M8.1 13.34L3.91 9.16a4.01 4.01 0 0 1 0-5.66l7.02 7zm5.31-.34l6.88 6.88l-1.41 1.41L12 14.41l-6.88 6.88l-1.41-1.41l9.65-9.66l-.2-.22a1.98 1.98 0 0 1 0-2.81l4.34-4.37l.93.92L15.19 7l.96.94l3.24-3.25l.92.92l-3.25 3.24l.94.96l3.26-3.25l.92.94l-4.37 4.34c-.78.78-2.04.78-2.81 0l-.22-.2z"/></svg><h4>Exploradora gastronômica</h4><p>Conhecer novos restaurantes, cafeterias e sorveterias é um dos meus passatempos favoritos.</p></div>
+          <div><svg class="fora__icone" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path fill="currentColor" d="M16.67 4H15V2H9v2H7.33A1.33 1.33 0 0 0 6 5.33v15.33C6 21.4 6.6 22 7.33 22h9.33c.74 0 1.34-.6 1.34-1.33V5.33C18 4.6 17.4 4 16.67 4M11 20v-5.5H9L13 7v5.5h2"/></svg><h4>Recarregando as energias</h4><p>Cinema, passeios ao ar livre, bons livros, séries e boa música.</p></div>
+          <div><svg class="fora__icone" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path fill="currentColor" d="M20.57 14.86L22 13.43L20.57 12L17 15.57L8.43 7L12 3.43L10.57 2L9.14 3.43L7.71 2L5.57 4.14L4.14 2.71L2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57L3.43 12L7 8.43L15.57 17L12 20.57L13.43 22l1.43-1.43L16.29 22l2.14-2.14l1.43 1.43l1.43-1.43l-1.43-1.43L22 16.29z"/></svg><h4>Relação de obrigação</h4><p>Frequento a academia regularmente. Não por amor, mas por pura responsabilidade com a saúde.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block areas-sec" id="areas" aria-labelledby="h-areas">
+    <div class="inner">
+      <div class="cabecalho">
+        <span class="label label-secao">Áreas de atuação</span>
+        <h2 class="h2" id="h-areas">Do estratégico ao visual,<br><span>com cuidado em cada detalhe.</span></h2>
+      </div>
+      <div class="areas">
+        <a class="area" href="#projetos" data-filtro-area="social">
+          <span class="area__num">01</span>
+          <h3>Visual Design &amp; Comunicação</h3>
+          <p>Design para redes sociais, peças publicitárias, diagramação, <span style="white-space:nowrap">e-books</span>, infográficos, relatórios e apresentações.</p>
+          <span class="area__ver">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="area" href="galeria.html">
+          <span class="area__num">02</span>
+          <h3>Edição &amp; Tratamento</h3>
+          <p>Retoque e correção de fotografias, ajustes de cor, luz e contraste, recorte, manipulação de imagens e composição visual.</p>
+          <span class="area__ver">Ver galeria <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="area" href="#projetos" data-filtro-area="marca">
+          <span class="area__num">03</span>
+          <h3>Branding &amp; Identidade</h3>
+          <p>Logotipos, símbolos, paleta de cores, tipografia, sistemas visuais, aplicações, manual de marca, posicionamento e experiência do cliente.</p>
+          <span class="area__ver">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="area" href="#projetos" data-filtro-area="ux">
+          <span class="area__num">04</span>
+          <h3>UX/UI &amp; Service Design</h3>
+          <p>Arquitetura de informação, prototipagem, design system, mapeamento de jornadas, pesquisa com usuários e service blueprints.</p>
+          <span class="area__ver">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projetos" aria-labelledby="h-proj">
+    <div class="inner">
+      <div class="cabecalho">
+        <span class="label label-secao">Projetos</span>
+        <h2 class="h2" id="h-proj">Ideias que viram<br><span>soluções visuais.</span></h2>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar projetos por área">
+        <button type="button" id="f-todos" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button type="button" id="f-social" data-filtro="social" aria-pressed="false">Visual Design &amp; Comunicação</button>
+        <button type="button" id="f-imagem" data-filtro="imagem" aria-pressed="false">Edição &amp; Tratamento</button>
+        <button type="button" id="f-marca" data-filtro="marca" aria-pressed="false">Branding &amp; Identidade</button>
+        <button type="button" id="f-ux" data-filtro="ux" aria-pressed="false">UX/UI &amp; Service Design</button>
+      </div>
+      <div class="projetos">
+          <article class="projeto" data-area="social">
+            <a class="projeto__link" href="#projetos">
+              <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
+              <div class="projeto__meta"><span class="projeto__area">Visual Design &amp; Comunicação</span></div>
+              <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
+            </a>
+          </article>
+          <article class="projeto" data-area="imagem">
+            <a class="projeto__link" href="galeria.html">
+              <div class="projeto__imagem projeto__imagem--galeria" aria-hidden="true"><div class="metade"><div data-cena="retrato" data-estado="antes"></div></div><div class="metade"><div data-cena="retrato"></div></div></div>
+              <div class="projeto__meta"><span class="projeto__area">Edição &amp; Tratamento</span></div>
+              <div class="projeto__topo"><h3 class="projeto__titulo">Galeria</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <p class="projeto__resumo">Retoques, correções de cor e luz, recortes e composições, com o antes e o depois de cada imagem.</p>
+            </a>
+          </article>
+          <article class="projeto" data-area="marca">
+            <a class="projeto__link" href="#projetos">
+              <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
+              <div class="projeto__meta"><span class="projeto__area">Branding &amp; Identidade</span></div>
+              <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
+            </a>
+          </article>
+          <article class="projeto" data-area="ux">
+            <a class="projeto__link" href="#projetos">
+              <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
+              <div class="projeto__meta"><span class="projeto__area">UX/UI &amp; Service Design</span></div>
+              <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
+            </a>
+          </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contato-sec" id="contato" aria-labelledby="h-contato">
+    <div class="inner">
+      <div class="contato">
+        <span class="label label-secao">Contato</span>
+        <h2 class="h2" id="h-contato">Vamos criar algo<br><span>juntos?</span></h2>
+        <p class="contato__texto">Estou em busca de oportunidades em design gráfico, social media, comunicação visual e UX/UI, e também aberta a projetos de design de serviços.</p>
+        <div class="contato__email">
+          <span class="contato__end" id="email">heloisa.vieira.borges@gmail.com</span>
+          <button type="button" class="copiar" id="copiar-email" data-copiar="heloisa.vieira.borges@gmail.com">Copiar</button>
+        </div>
+        <div class="actions contato__botoes">
+          <a class="btn btn-primary btn-linkedin" href="https://www.linkedin.com/in/heloisa-borges/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="#contato">Currículo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape"><div class="inner"><p>© <span data-ano>2026</span> Heloisa Borges · Design Gráfico e UX/UI</p><span class="rodape__logo">Heloisa<span>.</span>Borges</span></div></footer>
+
+<script src="js/site.js"></script>
+<script src="js/galeria.js"></script>
+</body>
+</html>

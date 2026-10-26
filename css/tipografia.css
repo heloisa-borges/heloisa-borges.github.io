@@ -1,0 +1,45 @@
+/* =========================================================
+   Portfólio Heloisa Borges · Sistema tipográfico
+   Atualizado em 22/10/2026
+
+   Famílias: Cormorant Garamond (títulos) · DM Sans (texto, rótulos, navegação) · DM Mono (detalhes)
+   Licença: SIL Open Font License (gratuitas, inclusive para uso comercial).
+   As fontes são carregadas pelo Google Fonts no <head> do index.html.
+
+   Regras
+   · Entrelinhas: 1,0 títulos grandes · 1,2 títulos médios e pequenos · 1,4 rótulos e detalhes · 1,65 texto.
+   · Caixa-alta em DM Sans: sempre 0,2em (botões: 0,1em).
+   · Texto corrido: no máximo 62 caracteres por linha.
+
+   Escala
+   ┌──────────────────────────────┬──────────────────────────────┬───────────────────┬─────────────────────────────────┐
+   │ Estilo                       │ Fonte · peso                 │ Tamanho           │ Detalhes                        │
+   ├──────────────────────────────┼──────────────────────────────┼───────────────────┼─────────────────────────────────┤
+   │ Display                      │ Cormorant Medium 500         │ 48–99px           │ entrelinha 1,0 · nome em itálico│
+   │ Título de seção              │ Cormorant Regular 400        │ 30–48px           │ 1,0 · 2ª linha em itálico ciano │
+   │ Título de projeto            │ Cormorant Medium 500         │ 24–30px           │ 1,2                             │
+   │ Subtítulo                    │ Cormorant SemiBold 600       │ 20–24px           │ 1,2 · títulos das Áreas         │
+   │ Subtítulo de bloco           │ Cormorant SemiBold 600       │ 20–24px           │ 1,2 · traço 24×2px vinho aceso  │
+   │ E-mail                       │ Cormorant Medium 500         │ 18–30px           │ 1,2                             │
+   │ Número das Áreas             │ Cormorant Medium 500         │ 36px              │ 1,0 · ciano                     │
+   │ Logo                         │ Cormorant Bold 700           │ 25px              │ 1,0 · 0,02em · ponto em ciano   │
+   │ Abertura                     │ DM Sans Regular 400          │ 18–20px           │ 1,65 · cinza --cor-texto-suave  │
+   │ Texto                        │ DM Sans Regular 400          │ 16px              │ 1,65 · destaques em Medium 500  │
+   │ Texto pequeno                │ DM Sans Regular 400          │ 14px              │ 1,65 · ferramentas e rodapé     │
+   │ Texto pequeno em destaque    │ DM Sans Medium 500           │ 14px              │ 1,65 · cursos em Formação       │
+   │ Título pequeno               │ DM Sans Regular 400          │ 18px              │ 1,2 · Fora das telas            │
+   │ Rótulo de seção              │ DM Sans Medium 500           │ 14px              │ caixa-alta · 0,2em · 1,4        │
+   │ Rótulo                       │ DM Sans Medium 500           │ 12px              │ caixa-alta · 0,2em · 1,4        │
+   │ Navegação                    │ DM Sans Regular 400          │ 12px              │ caixa-alta · 0,2em · 1,4        │
+   │ Botão principal              │ DM Sans Bold 700             │ 13px              │ caixa-alta · 0,1em · 1,4        │
+   │ Botão secundário (contorno)  │ DM Sans Medium 500           │ 13px              │ caixa-alta · 0,1em · 1,4        │
+   │ Detalhe                      │ DM Mono Regular 400          │ 13px              │ 0,02em · 1,4 · etiquetas, datas │
+   │ Rótulo do Diferencial        │ DM Mono Medium 500           │ 12px              │ caixa-alta · 0,2em · 1,4 · ciano│
+   └──────────────────────────────┴──────────────────────────────┴───────────────────┴─────────────────────────────────┘
+   ========================================================= */
+
+:root {
+  --fonte-titulo: "Cormorant Garamond", Garamond, Georgia, serif;
+  --fonte-texto:  "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --fonte-mono:   "DM Mono", ui-monospace, Menlo, monospace;
+}
