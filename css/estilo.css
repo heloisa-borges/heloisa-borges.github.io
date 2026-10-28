@@ -127,6 +127,12 @@ footer .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:f
 .copiar:hover{color:var(--cor-texto)}
 .copiar:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:4px}
 .contato__botoes{justify-content:center}
+/* botão só com ícone (WhatsApp), à direita do Currículo: sem contorno, só o ícone em ciano; a área de toque continua com 46 × 46 px */
+.btn-icone{width:46px;height:46px;padding:0;justify-content:center;color:var(--cor-ciano);margin-right:-58px} /* a margem negativa (46 px do ícone + 12 px do espaço) tira o ícone da conta da centralização: LinkedIn e Currículo ficam no centro da página */
+.btn-icone svg{width:22px;height:22px;display:block;flex:none}
+.btn-icone:hover{color:var(--cor-ciano-hover)}
+@media (max-width:380px){.contato__botoes{column-gap:8px}.btn-icone{margin-right:-54px}} /* celulares de 360 px: tudo numa linha só, com o ícone dentro da tela */
+@media (max-width:340px){.btn-icone{margin-right:0}} /* telas muito estreitas (320 px): o ícone desce para a linha de baixo, centralizado, em vez de passar da borda */
 .rodape .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
 .rodape__logo{font-family:var(--fonte-titulo);font-weight:600;font-size:1.3rem}
 .rodape__logo span{color:var(--cor-ciano)}

@@ -16,13 +16,20 @@ js/site.js          filtros de projetos, copiar e-mail, menu ativo, rolagem do m
 js/galeria.js       imagens provisórias da galeria e botão Voltar; nas duas páginas: menu que some ao rolar
                     e botão de voltar ao topo
 img/                foto do Sobre em WebP (480, 960 e 1600 px de largura; o navegador escolhe o tamanho certo)
+arquivos/           currículo em PDF (aberto pelos botões "Currículo", numa nova aba)
 ```
+
+A pasta `outros_arquivos/` (no computador) guarda os originais da foto e do currículo e não vai para o site.
 
 ## Foto do Sobre
 
 A foto é um PNG recortado, sem fundo, em 1600 × 2000 px (4:5). O degradê, o contorno e os cantos em ciano
 são desenhados pelo site. Para trocar a foto, gere de novo os três arquivos `img/foto-heloisa-480.webp`,
 `-960.webp` e `-1600.webp` mantendo a proporção 4:5.
+
+## Currículo
+
+Para trocar o currículo, substitua `arquivos/curriculo-heloisa-borges.pdf` por um PDF novo com o mesmo nome.
 
 ## Fotos da galeria
 
