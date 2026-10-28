@@ -40,7 +40,7 @@
       var alvo = document.getElementById(r.de === 'areas' ? 'areas' : 'projetos');
       var nav = document.querySelector('header.nav');
       // mostra só 30px de respiro entre o menu fixo e o título da seção (rótulo)
-      var vai = function(){ if (!alvo) return; var t = alvo.querySelector('.cabecalho') || alvo; var h = nav ? nav.offsetHeight : 0; window.scrollTo(0, Math.round(t.getBoundingClientRect().top + window.scrollY - h - 30)); };
+      var vai = function(){ if (!alvo) return; document.dispatchEvent(new CustomEvent('menu:fixar')); var t = alvo.querySelector('.cabecalho') || alvo; var h = nav ? nav.offsetHeight : 0; window.scrollTo(0, Math.round(t.getBoundingClientRect().top + window.scrollY - h - 30)); };
       vai(); requestAnimationFrame(vai);
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(vai);
       window.addEventListener('load', vai);
@@ -66,20 +66,32 @@
   }
 })();
 
-/* Galeria · botão "voltar ao topo" com anel de progresso
-   A posição vertical é do CSS (sticky); aqui só o progresso, a margem direita e a visibilidade. */
+/* Botão "voltar ao topo" com anel de progresso (Galeria e página principal)
+   A posição vertical é do CSS (sticky); aqui só o progresso, a margem direita e a visibilidade.
+   · Galeria: aparece depois do título da galeria; fica a no máximo 20px dos cards
+   · Página principal: aparece depois do primeiro bloco; fica a no máximo 20px da coluna de conteúdo */
 (function(){
   var btn = document.querySelector('.topo-btn'), area = document.querySelector('.topo-area'); if (!btn || !area) return;
   var prog = btn.querySelector('.prog'), C = 2 * Math.PI * 24; prog.style.strokeDasharray = C;
-  var cab = document.querySelector('#galeria .cabecalho'), card = document.querySelector('.trabalho'), secao = document.getElementById('galeria');
+  var cab = document.querySelector('#galeria .cabecalho') || document.querySelector('.hero'), card = document.querySelector('.trabalho');
+  // borda direita do conteúdo: o card da galeria ou, na página principal, a coluna de texto
+  function direita(){
+    if (card) return card.getBoundingClientRect().right;
+    var col = document.querySelector('main .inner'); if (!col) return document.documentElement.clientWidth;
+    return col.getBoundingClientRect().right - (parseFloat(getComputedStyle(col).paddingRight) || 0);
+  }
   var ultimo = window.scrollY, parado, pendente = false;
   var sobrepoe = false; // o botão invade as fotos? (só em telas sem margem lateral)
   function margem(){
-    var vw = document.documentElement.clientWidth, sobra = card ? vw - card.getBoundingClientRect().right : 0;
+    var vw = document.documentElement.clientWidth, sobra = vw - direita();
     var compacto = sobra < 52 + 40, largura = compacto ? 48 : 52;
     area.classList.toggle('compacto', compacto); btn.classList.toggle('compacto', compacto);
-    area.style.right = Math.max(16, Math.round((sobra - largura) / 2)) + 'px';
-    sobrepoe = sobra < largura + 16;
+    // no máximo 20px do conteúdo à esquerda (os cards, na galeria); em margens estreitas fica centralizado,
+    // sempre a pelo menos 24px da borda direita
+    var centro = (sobra - largura) / 2;
+    var dir = Math.max(24, Math.round(sobra - largura - Math.min(20, centro)));
+    area.style.right = dir + 'px';
+    sobrepoe = sobra - largura - dir < 0; // o botão invade o conteúdo
     return compacto;
   }
   var compacto = margem();
@@ -90,7 +102,7 @@
     prog.style.strokeDashoffset = C * (1 - p);
     var mostrar = cab && cab.getBoundingClientRect().bottom < 0;
     btn.classList.toggle('visivel', !!mostrar);
-    // só some ao rolar para baixo quando cobre as fotos; parado no fim da página, nunca some
+    // só some ao rolar para baixo quando cobre o conteúdo (celular); parado no fim da página, nunca some
     var noFim = area.getBoundingClientRect().bottom <= window.innerHeight;
     if (sobrepoe && !noFim) {
       if (window.scrollY > ultimo + 2 && mostrar) btn.classList.add('oculto'); else if (window.scrollY < ultimo) btn.classList.remove('oculto');
@@ -108,18 +120,29 @@
   });
 })();
 
-/* Galeria · menu (computador e celular)
+/* Menu (Galeria e página principal · computador e celular)
    · ao rolar para baixo, o menu sobe junto com a página, pixel a pixel, como se estivesse preso ao topo dela
    · ao rolar para cima (subida clara de 55px), ele desce de volta e fica fixo no topo da tela
-   · perto do topo da página, ele volta junto com o conteúdo */
+   · perto do topo da página, ele volta junto com o conteúdo
+   · ao navegar pelo menu, "Ver projetos", Áreas ou "Voltar" da galeria, o menu fica visível
+     (assim os 30px entre o menu e o título da seção continuam valendo) */
 (function(){
-  if (!document.getElementById('galeria') || document.getElementById('projetos')) return;
   var nav = document.querySelector('header.nav'); if (!nav) return;
   var raiz = document.documentElement, SUBIDA = 55;
-  var h = 0, desloc = 0, subida = 0, ultimo = 0, pendente = false;
+  var h = 0, desloc = 0, subida = 0, ultimo = 0, pendente = false, trava = 0, travaFim = 0;
   function altura(){ h = nav.getBoundingClientRect().height + (parseFloat(getComputedStyle(nav).top) || 0); if (desloc > h) desloc = h; }
-  // posição da rolagem sem o "elástico" do iPhone (acima do topo ou abaixo do fim)
-  function posY(){ var max = Math.max(0, raiz.scrollHeight - window.innerHeight); return Math.min(Math.max(0, window.scrollY), max); }
+  // posição da rolagem sem o "elástico" do iPhone (acima do topo ou abaixo do fim),
+  // contada a partir de onde o menu fica preso (se houver algo acima dele, como o aviso da prévia)
+  // (ignora o que não aparece na tela, como <style> e <script>)
+  function base(){
+    for (var el = nav.previousElementSibling; el; el = el.previousElementSibling) {
+      var cs = getComputedStyle(el), r = el.getBoundingClientRect();
+      if (cs.display === 'none' || cs.position === 'fixed' || cs.position === 'absolute' || r.height === 0) continue;
+      return Math.max(0, r.bottom + window.scrollY);
+    }
+    return 0;
+  }
+  function posY(){ var max = Math.max(0, raiz.scrollHeight - window.innerHeight); return Math.max(0, Math.min(Math.max(0, window.scrollY), max) - base()); }
   function aplica(anima){
     nav.classList.toggle('nav--anima', !!anima);
     nav.style.transform = desloc > 0 ? 'translateY(' + (-desloc) + 'px)' : '';
@@ -127,6 +150,8 @@
   function atualiza(){
     pendente = false;
     var y = posY(), d = y - ultimo; ultimo = y;
+    var agora = Date.now();
+    if (agora < trava) { trava = Math.min(travaFim, agora + 200); subida = 0; return; } // rolagem feita pelo site: menu continua visível
     if (d > 0) {                                   // descendo: o menu acompanha a página
       subida = 0;
       if (desloc < h) { desloc = Math.min(h, desloc + d); aplica(false); }
@@ -140,4 +165,10 @@
   window.addEventListener('scroll', function(){ if (!pendente) { pendente = true; requestAnimationFrame(atualiza); } }, { passive: true });
   window.addEventListener('resize', altura);
   nav.addEventListener('focusin', function(){ if (desloc > 0) { desloc = 0; subida = 0; aplica(true); } });
+  // pedido do próprio site antes de rolar até uma seção: mostra o menu e ignora essa rolagem
+  document.addEventListener('menu:fixar', function(){
+    var agora = Date.now(); trava = agora + 250; travaFim = agora + 1500;
+    if (desloc > 0) { desloc = 0; aplica(false); }
+    subida = 0; ultimo = posY();
+  });
 })();

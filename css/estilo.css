@@ -50,8 +50,9 @@ nav a:hover{color:var(--cor-ciano)} /* hover do menu: texto em ciano */
 .bz-active circle{stroke:var(--cor-ciano);stroke-opacity:.9}
 .bz-anchor{fill:var(--cor-carvao);stroke:var(--cor-ciano);stroke-opacity:.8;stroke-width:1.2;vector-effect:non-scaling-stroke}
 .bz-selected{fill:var(--cor-ciano);stroke-opacity:1}
-@media (max-width:720px){.bezier{opacity:.45}}
-.hero .inner{position:relative;padding-block:140px 120px;display:grid;gap:32px}
+/* celular: sem o desenho da caneta Bézier e da proporção áurea (e sem o brilho da grade, que só acende com o mouse) */
+@media (max-width:720px){.bezier,.hero__luz{display:none}}
+.hero .inner{position:relative;padding-block:80px 120px;display:grid;gap:32px}
 .hero .display{font-size:clamp(3rem,8vw,6.2rem)}
 .hero .display em{font-style:italic;color:var(--cor-ciano)}
 .roles{display:flex;flex-wrap:wrap;gap:8px}
@@ -74,7 +75,8 @@ section.block>.inner{padding-block:128px;display:grid;gap:64px}
 
 /* sobre */
 /* Teste: no Sobre, título em DM Sans e subtítulo em Cormorant Garamond */
-.photo-slot{aspect-ratio:4/5;max-width:100%;position:relative;border:1px solid var(--cor-linha);background:linear-gradient(160deg,rgba(87,12,54,.55) 0%,var(--cor-superficie) 55%,var(--cor-carvao) 100%);display:grid;place-items:center;overflow:hidden}
+.photo-slot{aspect-ratio:4/5;max-width:100%;position:relative;border:1px solid var(--cor-linha);background:radial-gradient(ellipse 82% 62% at 50% 38%,rgba(236,234,240,.26) 0%,rgba(236,234,240,.12) 45%,transparent 76%),linear-gradient(160deg,rgba(87,12,54,.55) 0%,var(--cor-superficie) 55%,var(--cor-carvao) 100%);display:grid;place-items:center;overflow:hidden}
+/* fundo da foto (opção A3): o degradê vinho com uma luz clara e suave atrás da cabeça e do cabelo, para o cabelo escuro não sumir no fundo */
 .photo-slot::before,.photo-slot::after{content:"";position:absolute;width:22px;height:22px;border-color:var(--cor-ciano);border-style:solid;opacity:.7}
 .photo-slot::before{top:14px;left:14px;border-width:1px 0 0 1px}
 .photo-slot::after{bottom:14px;right:14px;border-width:0 1px 1px 0}
@@ -178,7 +180,7 @@ footer .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:f
 @media (max-width:720px){
   nav ul{gap:18px}
   section.block>.inner{padding-block:88px;gap:48px}
-  .hero .inner{padding-block:96px 80px}
+  .hero .inner{padding-block:56px 80px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
@@ -315,8 +317,16 @@ header.nav nav a.ativo{border-bottom-color:var(--cor-vinho-aceso)}
 /* Rodapé: a linha ocupa a largura toda, igual à linha do menu */
 footer.rodape{border-top:1px solid var(--cor-linha)}
 footer.rodape .inner{border-top:0}
+/* rodapé com a mesma altura do cabeçalho no computador (87,8px, contando a linha de 1px); no celular, 86px */
+footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
 /* Menu no celular: respiros menores (de ~130px para ~100px de altura) */
 @media (max-width:720px){
   header.nav .inner{padding-block:16px 12px;row-gap:12px}
   html{scroll-padding-top:100px}
+  footer.rodape .inner{min-height:85px;row-gap:8px} /* rodapé no celular: 86px com a linha de 1px; texto e logo centralizados */
+  /* grade de pixels do topo no celular: quadrados menores (16px; no computador, 24px), só na diagonal superior
+     (acima da linha que vai do canto superior esquerdo ao inferior direito), com transição suave e esmaecendo para baixo */
+  .hero::before{background-size:16px 16px;
+    -webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);mask-composite:intersect}
 }

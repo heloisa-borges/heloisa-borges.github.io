@@ -79,7 +79,7 @@ section.block#galeria>.inner{padding-top:32px;padding-bottom:var(--respiro)}
 .topo-area{--btn:52px;position:absolute;top:0;bottom:calc((var(--respiro) - var(--btn)) / 2);right:24px;width:var(--btn);display:flex;flex-direction:column;justify-content:flex-end;pointer-events:none;z-index:70}
 .topo-btn{position:sticky;bottom:56px;width:var(--btn);height:var(--btn);border:0;padding:0;border-radius:50%;background:rgba(18,17,22,.92);color:var(--cor-ciano);display:grid;place-items:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s}
 .topo-btn.visivel{opacity:1;pointer-events:auto}
-/* telas sem margem lateral (celular): alvo de toque de 48px, afastado da borda e da barra do sistema */
+/* telas sem margem lateral (celular): alvo de toque de 48px, a 24px da borda direita e afastado da barra do sistema */
 .topo-area.compacto{--btn:48px}
 .topo-btn.compacto{bottom:calc(32px + env(safe-area-inset-bottom,0px))}
 .topo-btn.compacto.visivel{opacity:.85}
@@ -92,7 +92,12 @@ section.block#galeria>.inner{padding-top:32px;padding-bottom:var(--respiro)}
 .topo-btn:hover .seta-topo{transform:translateY(-2px)}
 @media (prefers-reduced-motion:reduce){.topo-btn,.topo-btn .seta-topo{transition:none}}
 
-/* Galeria (computador e celular): ao descer, o menu sobe junto com a página; ao subir, ele desce de volta.
+/* Página principal: o botão fica na coluna da margem direita de todo o conteúdo e, no fim, para no meio do
+   respiro final do Contato (128px; 88px no celular). Na Galeria, a área fica dentro de #galeria. */
+main{position:relative;--respiro:128px}
+@media (max-width:720px){main{--respiro:88px}}
+
+/* Galeria e página principal (computador e celular): ao descer, o menu sobe junto com a página; ao subir, ele desce de volta.
    O deslocamento vem do galeria.js; a animação só existe quando o menu reaparece. */
 header.nav.nav--anima{transition:transform .3s ease}
 @media (prefers-reduced-motion:reduce){header.nav.nav--anima{transition:none}}

@@ -11,8 +11,10 @@ css/cores.css       cartela de cores (variáveis) e regras de uso
 css/tipografia.css  fontes (variáveis) e a escala tipográfica documentada
 css/estilo.css      estilos do site
 css/galeria.css     estilos da galeria e do card da galeria em Projetos
-js/site.js          filtros de projetos, copiar e-mail, menu ativo, rolagem do menu, brilho da grade, ano do rodapé
-js/galeria.js       imagens provisórias da galeria, botão Voltar, botão de voltar ao topo e menu da galeria
+js/site.js          filtros de projetos, copiar e-mail, menu ativo, rolagem do menu (30 px até o título), desenho do topo,
+                    brilho da grade, altura do rodapé, ano do rodapé
+js/galeria.js       imagens provisórias da galeria e botão Voltar; nas duas páginas: menu que some ao rolar
+                    e botão de voltar ao topo
 img/                foto do Sobre em WebP (480, 960 e 1600 px de largura; o navegador escolhe o tamanho certo)
 ```
 
