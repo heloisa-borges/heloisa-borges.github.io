@@ -118,6 +118,9 @@ footer .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:f
 .fora__itens>div{background:var(--cor-superficie);border:1px solid var(--cor-linha);border-radius:2px;padding:28px;min-width:0} /* tópicos de Fora das telas em caixas */
 .fora h4{font-family:var(--fonte-titulo);font-weight:500;font-size:1.3rem;margin:0 0 .5rem;color:var(--cor-texto)}
 .fora p{font-size:.95rem;line-height:1.65;color:var(--cor-texto-suave)}
+/* computador (4 colunas): menos quebras de linha nos cards de Fora das telas — espaço entre cards de 24 para 16 px, margem interna de 28 para 22 px,
+   e o navegador evita deixar uma palavra sozinha na última linha */
+@media (min-width:1101px){.fora__itens{gap:1rem}.fora__itens>div{padding:22px}.fora p{text-wrap:pretty}.fora h4{text-wrap:balance}}
 .contato-sec{background:var(--cor-superficie)}
 .contato{max-width:42rem;margin:0 auto;text-align:center;justify-items:center}
 .contato__texto{color:var(--cor-texto-suave);line-height:1.7;max-width:30rem}
