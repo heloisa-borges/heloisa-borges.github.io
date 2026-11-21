@@ -649,3 +649,26 @@ html{scroll-behavior:smooth}
 /* Voltar: área de clique maior (pelo menos 44px de altura), sem mudar a posição visual */
 #case .voltar{position:relative;padding:14px 16px 14px 0;margin-top:-14px;margin-bottom:10px}
 #case .voltar::before{content:"";position:absolute;inset:-4px -12px -4px -12px}
+
+/* Visualizador do fluxograma com zoom (abre na mesma página) */
+.zoom{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#F5F7FA;color:#15377A;overflow:hidden;font-family:Inter,system-ui,sans-serif}
+.zoom::backdrop{background:#F5F7FA}
+html.zoom-aberto{overflow:hidden}
+.zoom__palco{position:absolute;inset:0;overflow:hidden;touch-action:none;cursor:default;user-select:none;-webkit-user-select:none}
+.zoom__palco--mover{cursor:grab}.zoom__palco--mover:active{cursor:grabbing}
+.zoom__img{position:absolute;left:0;top:0;max-width:none;transform-origin:0 0;pointer-events:none}
+.zoom button{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#15377A;cursor:pointer;padding:0}
+.zoom button svg{width:20px;height:20px}
+.zoom button:hover:not(:disabled){background:#15377A;color:#fff}
+.zoom button:disabled{opacity:.35;cursor:default}
+.zoom button:focus-visible{outline:2px solid #C1B771;outline-offset:3px}
+.zoom__fechar{position:absolute;top:16px;right:16px;box-shadow:0 4px 14px -4px rgba(20,32,58,.35)}
+.zoom__barra{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;background:#fff;box-shadow:0 10px 30px -10px rgba(20,32,58,.45)}
+.zoom__barra button{width:40px;height:40px}
+.zoom__barra button[data-acao="ajustar"]{margin-left:4px;box-shadow:-5px 0 0 -4px #DDE3EC}
+.zoom__nivel{min-width:56px;text-align:center;font:600 14px/1 Inter,system-ui,sans-serif;color:#15377A;font-variant-numeric:tabular-nums}
+.zoom__dica{position:absolute;left:0;right:0;top:28px;margin:0;text-align:center;font:400 13px/1.4 Inter,system-ui,sans-serif;color:#5F6878;pointer-events:none;transition:opacity .3s}
+.zoom--ampliado .zoom__dica{opacity:0}
+.zoom__dica--toque{display:none}
+@media (hover:none),(pointer:coarse){.zoom__dica--mouse{display:none}.zoom__dica--toque{display:inline}}
+@media (max-width:720px){.zoom__dica{top:30px;padding:0 72px 0 16px;text-align:left}.zoom__barra{bottom:20px}}
