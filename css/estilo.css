@@ -339,3 +339,11 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
     -webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);-webkit-mask-composite:source-in;
     mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);mask-composite:intersect}
 }
+
+/* Imagem real no card: ocupa todo o espaço 4:3 */
+.projeto__imagem img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Tags dos cards de projeto (as mesmas etiquetas do topo, em DM Mono) · ficam no pé do card */
+.projeto__tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:auto 28px 28px}
+.projeto__resumo:has(+.projeto__tags){margin-bottom:20px}
+@media (max-width:720px){.projeto__tags{margin:auto 20px 22px}.projeto__resumo:has(+.projeto__tags){margin-bottom:18px}}

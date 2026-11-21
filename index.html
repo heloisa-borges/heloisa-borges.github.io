@@ -1,20 +1,482 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Heloisa Borges · Design Gráfico e UX/UI</title>
-<meta name="description" content="Portfólio de Heloisa Borges: design gráfico, branding, edição de imagem, UX/UI e service design.">
-<meta name="theme-color" content="#121116">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Prévia do Portfólio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="css/cores.css">
-<link rel="stylesheet" href="css/tipografia.css">
-<link rel="stylesheet" href="css/estilo.css">
 <link rel="stylesheet" href="css/galeria.css">
-</head>
-<body>
+<style>
+/* Layout: home completa do portfólio em uma coluna larga; seções separadas por linhas finas; no fim, a ficha do sistema tipográfico */
+:root{
+  --cor-carvao:#121116; --cor-superficie:#1C1B21; --cor-linha:#2A2830;
+  --cor-vinho:#570C36; --cor-vinho-aceso:#8A1F5C;
+  --cor-ciano:#8FD3DE; --cor-ciano-hover:#B3E4EC; --cor-ciano-suave:rgba(143,211,222,.12);
+  --cor-texto:#ECEAF0; --cor-texto-suave:#9C99A6; --cor-rotulo:#B4B1BC; --cor-texto-corpo:#D6D3DC;
+  --fonte-titulo:"Cormorant Garamond", Garamond, Georgia, serif;
+  --fonte-texto:"DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --fonte-mono:"DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--cor-carvao);color:var(--cor-texto);font:400 17px/1.65 var(--fonte-texto);-webkit-font-smoothing:antialiased}
+p{margin:0}
+a{color:inherit}
+.inner{max-width:1200px;margin:0 auto;padding-left:max(clamp(24px,7vw,112px),env(safe-area-inset-left,0px));padding-right:max(clamp(24px,7vw,112px),env(safe-area-inset-right,0px))}
+
+/* tipografia */
+.display{font-family:var(--fonte-titulo);font-weight:500;line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.h2{font-family:var(--fonte-titulo);font-weight:500;line-height:1;letter-spacing:-.005em;font-size:clamp(2.2rem,4.4vw,3.2rem);margin:0}
+.h3{font-family:var(--fonte-texto);font-weight:600;font-size:1.25rem;line-height:1.3;margin:0}
+.label{font-family:var(--fonte-mono);font-weight:500;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cor-texto-suave)}
+.label-secao{font-family:var(--fonte-texto);font-weight:500;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#B4B1BC} /* rótulo de seção: DM Sans Regular 12px, caixa-alta, 0,3em */
+.mono{font-family:var(--fonte-mono);font-size:.82rem;color:var(--cor-ciano)}
+.body{color:var(--cor-texto-corpo);max-width:62ch}
+
+/* faixa de aviso */
+.notice{border-bottom:1px solid var(--cor-linha);background:var(--cor-superficie)}
+.notice .inner{padding-block:10px;font-size:.82rem;color:var(--cor-texto-suave)}
+
+/* navegação */
+/* Menu fixo: logo e menu ficam no topo ao rolar */
+header.nav{border-bottom:1px solid var(--cor-linha);position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(18,17,22,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:61;background:var(--cor-carvao)}
+html{scroll-padding-top:96px}
+@media (max-width:720px){html{scroll-padding-top:120px}}
+header.nav .inner{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:28px}
+.logo{font-family:var(--fonte-titulo);font-weight:600;font-size:1.45rem;line-height:1;text-decoration:none}
+.logo span{color:var(--cor-ciano)}
+nav ul{display:flex;gap:36px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{font-family:var(--fonte-mono);font-size:.8rem;text-decoration:none;color:var(--cor-texto)} /* menu sempre aceso, igual ao hover */
+nav a:hover{color:var(--cor-ciano)} /* hover do menu: texto em ciano */
+
+/* hero */
+.hero{position:relative;overflow:visible;
+  background:radial-gradient(70% 110% at 100% 0%, rgba(87,12,54,.95) 0%, rgba(87,12,54,.5) 38%, transparent 72%), var(--cor-carvao)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:32px 32px;
+  /* grade mais aparente, mas mais suave atrás do texto (lado esquerdo) e esmaecendo para baixo */
+  -webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(90deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,.4) 30%,#000 62%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(90deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,.4) 30%,#000 62%);mask-composite:intersect}
+.bezier{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.bz-curve{fill:none;stroke:var(--cor-ciano);stroke-opacity:.55;stroke-width:1.5;vector-effect:non-scaling-stroke}
+.bz-handle line{stroke:var(--cor-texto-suave);stroke-opacity:.45;stroke-width:1;vector-effect:non-scaling-stroke}
+.bz-handle circle{fill:var(--cor-carvao);stroke:var(--cor-texto-suave);stroke-opacity:.7;stroke-width:1;vector-effect:non-scaling-stroke}
+.bz-active line{stroke:var(--cor-ciano);stroke-opacity:.6}
+.bz-active circle{stroke:var(--cor-ciano);stroke-opacity:.9}
+.bz-anchor{fill:var(--cor-carvao);stroke:var(--cor-ciano);stroke-opacity:.8;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.bz-selected{fill:var(--cor-ciano);stroke-opacity:1}
+.bz-tag rect{fill:var(--cor-superficie);stroke:var(--cor-linha);stroke-width:1;vector-effect:non-scaling-stroke}
+.bz-tag text{font-family:var(--fonte-mono);font-size:12px;fill:var(--cor-texto-suave);letter-spacing:.04em}
+/* celular: sem o desenho da caneta Bézier e da proporção áurea (e sem o brilho da grade, que só acende com o mouse) */
+@media (max-width:720px){.bezier,.hero__luz{display:none}}
+.hero .inner{position:relative;padding-block:80px 120px;display:grid;gap:32px}
+.hero .display{font-size:clamp(3rem,8vw,6.2rem)}
+.hero .display em{font-style:italic;color:var(--cor-ciano)}
+.roles{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--fonte-mono);font-size:.76rem;padding:6px 10px;border:1px solid var(--cor-linha);border-radius:2px;color:var(--cor-texto);background:var(--cor-superficie)} /* mesmo fundo das tags de ferramentas */
+.hero .lead{font-size:clamp(1rem,.95rem + .25vw,1.125rem);line-height:1.65;color:var(--cor-texto);max-width:34ch;text-wrap:balance}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fonte-texto);font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 22px;border-radius:2px}
+.btn-primary{background:var(--cor-ciano);color:var(--cor-carvao);box-shadow:0 0 22px -6px var(--cor-ciano)}
+.btn-primary:hover{background:var(--cor-ciano-hover)}
+.btn-ghost{color:var(--cor-texto);box-shadow:inset 0 0 0 1px var(--cor-linha)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--cor-texto-suave)}
+.btn:focus-visible,nav a:focus-visible,.logo:focus-visible{outline:none;box-shadow:0 0 0 2px var(--cor-carvao),0 0 0 4px var(--cor-ciano)}
+.status{display:flex;align-items:center;gap:10px;font-family:var(--fonte-mono);font-size:.78rem;color:var(--cor-texto-suave)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--cor-ciano);box-shadow:0 0 12px var(--cor-ciano)}
+
+/* seções */
+section.block{border-top:1px solid var(--cor-linha)}
+#sobre{border-top:0;position:relative} /* sem divisão: a curva do topo vaza para o Sobre e passa por trás do texto */
+section.block>.inner{padding-block:128px;display:grid;gap:64px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+
+/* sobre */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:80px}
+.about-alt{grid-template-columns:minmax(0,1fr) minmax(0,1fr); /* mesmo grid de Ferramentas e Formação (.two) */grid-template-areas:"head ." "photo text" "photo diff";grid-template-rows:auto auto 1fr;column-gap:80px;row-gap:40px}
+/* Teste: no Sobre, título em DM Sans e subtítulo em Cormorant Garamond */
+#sobre .a-head .h2{font-family:var(--fonte-texto);font-weight:500;letter-spacing:0;line-height:1}
+#sobre .a-head .quote{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.1;letter-spacing:-.005em}
+#sobre .a-head .quote span{font-style:italic}
+.a-photo{grid-area:photo;align-self:start;min-width:0}
+.photo-slot{aspect-ratio:4/5;max-width:100%;position:relative;border:1px solid var(--cor-linha);background:radial-gradient(ellipse 82% 62% at 50% 38%,rgba(236,234,240,.26) 0%,rgba(236,234,240,.12) 45%,transparent 76%),linear-gradient(160deg,rgba(87,12,54,.55) 0%,var(--cor-superficie) 55%,var(--cor-carvao) 100%);display:grid;place-items:center;overflow:hidden}
+/* fundo da foto (opção A3): o degradê vinho com uma luz clara e suave atrás da cabeça e do cabelo, para o cabelo escuro não sumir no fundo */
+.photo-slot::before,.photo-slot::after{content:"";position:absolute;width:22px;height:22px;border-color:var(--cor-ciano);border-style:solid;opacity:.7}
+.photo-slot::before{top:14px;left:14px;border-width:1px 0 0 1px}
+.photo-slot::after{bottom:14px;right:14px;border-width:0 1px 1px 0}
+.photo-slot span{font-family:var(--fonte-mono);font-size:.75rem;color:var(--cor-texto-suave);text-align:center;line-height:1.6}
+/* foto recortada (sem fundo) por cima do degradê; o contorno e os cantos em ciano ficam por cima da foto */
+.photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.photo-slot::before,.photo-slot::after{z-index:1}
+.a-head{grid-area:head}.a-text{grid-area:text}.a-diff{grid-area:diff;min-width:0;align-self:start}
+.about .text{display:grid;gap:18px;min-width:0}
+.quote{font-family:var(--fonte-mono);font-weight:400;font-size:clamp(1.15rem,2.1vw,1.45rem);line-height:1.45;margin:0;text-wrap:balance}
+.quote span{color:var(--cor-ciano)}
+.qa{font-family:"IBM Plex Serif",Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(1.5rem,2.8vw,2rem);line-height:1.2}
+.qb{font-family:var(--fonte-texto);font-weight:400;font-size:clamp(1.5rem,2.8vw,2rem);line-height:1.25;letter-spacing:-.015em}
+.qc{font-family:var(--fonte-titulo);font-stretch:100%;font-weight:500;font-size:clamp(1.45rem,2.7vw,1.9rem);line-height:1.2;letter-spacing:-.02em}
+.qd{font-family:var(--fonte-mono);font-weight:400;font-size:clamp(1.15rem,2.1vw,1.45rem);line-height:1.45}
+.qe{font-family:var(--fonte-titulo);font-stretch:125%;font-weight:700;text-transform:uppercase;font-size:clamp(1.3rem,2.4vw,1.75rem);line-height:1.05;letter-spacing:-.01em}
+.qa span,.qb span,.qc span,.qd span,.qe span{color:var(--cor-ciano)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid var(--cor-linha)}
+.opt{padding:26px 24px;display:grid;gap:14px;align-content:start;border-top:1px solid var(--cor-linha);min-width:0}
+.opt:nth-child(-n+2){border-top:0}
+.opt:nth-child(even){border-left:1px solid var(--cor-linha)}
+.ctx{display:grid;gap:18px;padding:22px 0 4px}
+.ctx-body{font-size:.98rem}
+.opt .why{font-size:.9rem;color:var(--cor-texto-suave)}
+.opt.rec{background:rgba(143,211,222,.05)}
+@media (max-width:720px){.opts{grid-template-columns:minmax(0,1fr)}.opt:nth-child(2){border-top:1px solid var(--cor-linha)}.opt:nth-child(even){border-left:0}}
+.diff{border-left:2px solid var(--cor-vinho-aceso);background:var(--cor-superficie);padding:18px 20px;display:grid;gap:8px}
+.diff p{font-size:.98rem;color:var(--cor-texto-corpo)}
+
+/* projetos */
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.project{display:grid;gap:14px;text-decoration:none;min-width:0}
+.thumb{aspect-ratio:4/3;max-width:100%;position:relative;overflow:hidden;border:1px solid var(--cor-linha);display:grid;place-items:center}
+.thumb .ph{font-family:var(--fonte-mono);font-size:.72rem;color:rgba(236,234,240,.55)}
+.p1 .thumb{background:linear-gradient(135deg,#570C36 0%,#2A1020 60%,#121116 100%)}
+.p2 .thumb{background:linear-gradient(135deg,#1C1B21 0%,#1E3A40 100%)}
+.p3 .thumb{background:linear-gradient(135deg,#2A2830 0%,#570C36 140%)}
+.project .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.project:hover .h3{color:var(--cor-ciano)}
+.project p.desc{font-size:.95rem;color:var(--cor-texto-suave)}
+
+/* ferramentas e formação */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.edu{list-style:none;margin:0;padding:0;display:grid}
+.edu li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:16px 0;border-top:1px solid var(--cor-linha)}
+.edu li:last-child{border-bottom:1px solid var(--cor-linha)}
+.edu .where{font-size:.92rem;color:var(--cor-texto-suave)}
+.edu .when{font-family:var(--fonte-mono);font-size:.8rem;color:var(--cor-ciano);white-space:nowrap}
+
+/* contato */
+.contact .inner{padding-block:160px;display:grid;gap:36px}
+.contact .display{font-size:clamp(2.6rem,6.6vw,5rem)}
+footer .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--fonte-mono);font-size:.75rem;color:var(--cor-texto-suave)}
+
+/* Sobre, Contato e Rodapé (trazidos do projeto Lovable, nas cores deste projeto) */
+#sobre .cabecalho,.contato{display:grid;gap:22px}
+#sobre .h2 span,.contato .h2 span{font-style:italic;color:var(--cor-ciano)}
+.sobre{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
+.sobre__foto{width:100%}
+.sobre__texto{display:grid;gap:22px;min-width:0}
+.sobre__texto>p{color:var(--cor-texto-corpo);line-height:1.7;max-width:62ch}
+.sobre__texto strong,.formacao strong{font-weight:500;color:var(--cor-texto)}
+.diferencial{border-left:2px solid var(--cor-vinho-aceso);background:var(--cor-superficie);padding:2rem;display:grid;gap:12px;margin-top:1rem}
+.diferencial p{color:var(--cor-texto-corpo);line-height:1.7;font-size:.98rem} /* mesma cor do texto corrido */
+.subtitulo{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.5rem,1.2rem + .9vw,1.9rem);line-height:1.2;margin:0}
+.detalhes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;padding-top:64px;border-top:1px solid var(--cor-linha)}
+.detalhes__col{display:grid;gap:16px;align-content:start;min-width:0}
+.detalhes__col .subtitulo{margin-bottom:8px}
+.ferramentas{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0 0 16px;padding:0}
+.ferramentas li{font-size:.9rem;padding:.45rem .9rem;background:var(--cor-superficie);border:1px solid var(--cor-linha);border-radius:2px;color:var(--cor-texto)}
+.formacao{list-style:none;margin:0;padding:0}
+.formacao li{display:flex;justify-content:space-between;gap:1.5rem;padding:1rem 0;border-bottom:1px solid var(--cor-linha);font-size:.95rem;color:var(--cor-texto-suave)}
+.formacao li:first-child{padding-top:0}
+.formacao li span:last-child{white-space:nowrap;font-family:var(--fonte-mono);font-size:.8rem;color:var(--cor-ciano)}
+.fora{display:grid;gap:32px;padding-top:64px}
+.fora__itens{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}
+@media (max-width:1100px){.fora__itens{grid-template-columns:repeat(2,minmax(0,1fr))}} /* telas menores: 2 colunas */
+.fora__itens>div{background:var(--cor-superficie);border:1px solid var(--cor-linha);border-radius:2px;padding:28px;min-width:0} /* tópicos de Fora das telas em caixas */
+.fora h4{font-family:var(--fonte-titulo);font-weight:500;font-size:1.3rem;margin:0 0 .5rem;color:var(--cor-texto)}
+.fora p{font-size:.95rem;line-height:1.65;color:var(--cor-texto-suave)}
+/* computador (4 colunas): menos quebras de linha nos cards de Fora das telas — espaço entre cards de 24 para 16 px, margem interna de 28 para 22 px,
+   e o navegador evita deixar uma palavra sozinha na última linha */
+@media (min-width:1101px){.fora__itens{gap:1rem}.fora__itens>div{padding:22px}.fora p{text-wrap:pretty}.fora h4{text-wrap:balance}}
+.contato-sec{background:var(--cor-superficie)}
+.contato{max-width:42rem;margin:0 auto;text-align:center;justify-items:center}
+.contato__texto{color:var(--cor-texto-suave);line-height:1.7;max-width:30rem}
+.contato__email{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:.5rem 1rem}
+.contato__end{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.3rem,.9rem + 1.5vw,2rem);overflow-wrap:anywhere;border-bottom:1px solid var(--cor-linha);user-select:all}
+.copiar{font:inherit;background:none;border:0;cursor:pointer;font-family:var(--fonte-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano)}
+.copiar:hover{color:var(--cor-texto)}
+.copiar:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:4px}
+.contato__botoes{justify-content:center}
+/* botão só com ícone (WhatsApp), à direita do Currículo: sem contorno, só o ícone em ciano; a área de toque continua com 46 × 46 px */
+.btn-icone{width:46px;height:46px;padding:0;justify-content:center;color:var(--cor-ciano);margin-right:-58px} /* a margem negativa (46 px do ícone + 12 px do espaço) tira o ícone da conta da centralização: LinkedIn e Currículo ficam no centro da página */
+.btn-icone svg{width:22px;height:22px;display:block;flex:none}
+.btn-icone:hover{color:var(--cor-ciano-hover)}
+@media (max-width:380px){.contato__botoes{column-gap:8px}.btn-icone{margin-right:-54px}} /* celulares de 360 px: tudo numa linha só, com o ícone dentro da tela */
+@media (max-width:340px){.btn-icone{margin-right:0}} /* telas muito estreitas (320 px): o ícone desce para a linha de baixo, centralizado, em vez de passar da borda */
+.rodape .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+.rodape__logo{font-family:var(--fonte-titulo);font-weight:600;font-size:1.3rem}
+.rodape__logo span{color:var(--cor-ciano)}
+.rodape p{font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.05em;color:var(--cor-texto-suave)}
+@media (max-width:860px){.sobre{gap:48px}}
+@media (max-width:720px){.fora__itens{grid-template-columns:minmax(0,1fr);gap:1rem}} /* celular: 1 coluna */
+@media (max-width:720px){.sobre,.detalhes{grid-template-columns:minmax(0,1fr);gap:40px}.sobre__foto{max-width:22rem}.detalhes,.fora{padding-top:48px}}
+/* Projetos (layout trazido do projeto Lovable, nas cores deste projeto) */
+#projetos .cabecalho{display:grid;gap:22px}
+#projetos .h2 span{font-style:italic;color:var(--cor-ciano)}
+.filtros{display:flex;flex-wrap:wrap;gap:.75rem 2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--cor-linha)}
+.filtros button{font:inherit;background:none;border:0;cursor:pointer;font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-texto-suave);padding:0 0 .25rem;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.filtros button:hover{color:var(--cor-texto)}
+.filtros button[aria-pressed="true"]{color:var(--cor-ciano);border-color:var(--cor-ciano)}
+.filtros button:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:4px}
+.projetos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4rem 2.5rem}
+.projeto{min-width:0}
+.projeto[hidden]{display:none}
+.projeto.entrando{animation:entrar .5s ease both}
+@keyframes entrar{from{opacity:.2;transform:translateY(.75rem)}to{opacity:1;transform:none}}
+.projeto__link{display:flex;flex-direction:column;height:100%;text-decoration:none}
+.projeto__link:focus-visible{outline:2px solid var(--cor-ciano);outline-offset:6px}
+.projeto__imagem{aspect-ratio:4/3;max-width:100%;overflow:hidden;border:1px solid var(--cor-linha);background:linear-gradient(135deg,rgba(87,12,54,.6),var(--cor-superficie) 60%,var(--cor-carvao));margin-bottom:1.5rem;display:grid;place-items:center;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.projeto__imagem span{font-family:var(--fonte-mono);font-size:.72rem;color:var(--cor-texto-suave)}
+.projeto__link:hover .projeto__imagem{transform:scale(1.01)}
+.projeto__meta{display:flex;align-items:baseline;gap:1rem;margin-bottom:.75rem}
+.projeto__num{font-family:var(--fonte-titulo);font-size:1rem;color:var(--cor-texto-suave)}
+.projeto__area{font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano)}
+.projeto__titulo{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.5rem,1.25rem + .9vw,1.875rem);line-height:1.2;margin:0 0 .75rem;color:var(--cor-texto);transition:color .3s;text-wrap:balance}
+.projeto__link:hover .projeto__titulo{color:var(--cor-ciano)}
+.projeto__resumo{font-size:.95rem;line-height:1.65;color:var(--cor-texto-suave);margin-bottom:1.25rem}
+.projeto .tags{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0 0 1.5rem;padding:0}
+.projeto .tags li{font-family:var(--fonte-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cor-texto-suave);border:1px solid var(--cor-linha);border-radius:999px;padding:.3rem .75rem}
+.projeto__ver{margin-top:auto;font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-texto);display:inline-flex;gap:.5rem;align-items:center}
+.projeto__ver span{font-family:var(--fonte-titulo);font-size:1.25rem;line-height:1;transition:transform .3s;color:var(--cor-ciano)}
+.projeto__link:hover .projeto__ver span{transform:rotate(90deg)}
+@media (max-width:720px){.projetos{grid-template-columns:minmax(0,1fr);gap:3.5rem}.filtros{gap:.75rem 1.5rem}}
+@media (prefers-reduced-motion:reduce){.projeto.entrando{animation:none}}
+/* Áreas de atuação (trazida do projeto Lovable, nas cores deste projeto) */
+.areas-sec{background:var(--cor-superficie)}
+.areas-sec .cabecalho{display:grid;gap:22px}
+.areas-sec .h2 span{font-style:italic;color:var(--cor-ciano)}
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--cor-linha);border:1px solid var(--cor-linha)}
+.area{display:flex;flex-direction:column;background:var(--cor-superficie);padding:2.5rem;text-decoration:none;transition:background-color .4s;min-width:0} /* fundo na cor da seção */
+.area:hover,.area:focus-visible{background:var(--cor-carvao)} /* hover: fundo escurece */
+.area:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--cor-ciano)}
+.area__num{font-family:var(--fonte-titulo);font-weight:500;font-size:2.25rem;line-height:1;color:var(--cor-ciano);transition:color .5s} /* número sempre aceso */
+.area:hover .area__num,.area:focus-visible .area__num{color:var(--cor-ciano)}
+.area h3{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.3;margin:1.5rem 0 1rem;color:var(--cor-texto)}
+.area p{font-size:.95rem;line-height:1.65;color:var(--cor-texto-suave)}
+.area__ver{margin-top:auto;padding-top:1.5rem;font-family:var(--fonte-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano);opacity:0;transform:translateX(-.25rem);transition:opacity .4s,transform .4s} /* aparece só no hover */
+.area:hover .area__ver,.area:focus-visible .area__ver{opacity:1;transform:none}
+@media (hover:none){.area__ver{opacity:1;transform:none}}
+@media (max-width:720px){.areas{grid-template-columns:minmax(0,1fr)}.area{padding:2rem}}
+
+/* ficha tipográfica */
+.spec{background:var(--cor-superficie);border-top:1px solid var(--cor-linha)}
+.spec .inner{padding-block:112px;display:grid;gap:36px}
+.scale{display:grid;border:1px solid var(--cor-linha)}
+.row{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:baseline;padding:18px 20px;border-top:1px solid var(--cor-linha)}
+.row:first-child{border-top:0}
+.row .info{font-family:var(--fonte-mono);font-size:.74rem;color:var(--cor-texto-suave);line-height:1.5}
+.row .info b{color:var(--cor-ciano);font-weight:500}
+.row>div{min-width:0;overflow-wrap:anywhere}
+
+@media (max-width:860px){
+  .projects{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .projects .project:nth-child(3){grid-column:1 / -1}
+}
+@media (max-width:720px){
+  .about,.two{grid-template-columns:minmax(0,1fr);gap:48px}
+  .about-alt{grid-template-areas:"head" "photo" "text" "diff";grid-template-rows:auto;row-gap:32px}
+  .projects{grid-template-columns:minmax(0,1fr)}
+  .row{grid-template-columns:minmax(0,1fr);gap:6px}
+  nav ul{gap:18px}
+  section.block>.inner{padding-block:88px;gap:48px}
+  .hero .inner{padding-block:56px 80px}
+  .contact .inner{padding-block:104px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== Padrão DM Mono: dois estilos para todo o portfólio ===== */
+/* Rótulo mono · Medium 500 · 12px · caixa-alta · espaçamento 0,15em · entrelinha 1,4 */
+.label:not(.label-secao),.filtros button,.projeto__area,.projeto__ver,.area__ver,.copiar,.projeto .tags li{
+  font-family:var(--fonte-mono);font-weight:500;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;line-height:1.4}
+/* Detalhe mono · Regular 400 · 13px · caixa normal · espaçamento 0,02em · entrelinha 1,5 */
+nav a,.chip,.status,.formacao li span:last-child,.rodape p,.photo-slot span,.projeto__imagem span{
+  font-family:var(--fonte-mono);font-weight:400;font-size:.8125rem;letter-spacing:.02em;text-transform:none;line-height:1.5}
+
+/* Rótulo (antes em DM Mono) agora em DM Sans · Medium 500 · 12px · caixa-alta · 0,15em */
+.label:not(.label-secao),.projeto__ver,.area__ver,.copiar,.projeto .tags li{font-family:var(--fonte-texto)}
+/* "Disponível para novos projetos" de volta ao estilo original em DM Mono */
+.hero .status{font-family:var(--fonte-mono);font-weight:400;font-size:.78rem;letter-spacing:0;line-height:1.65}
+/* Teste: menu, filtros e categorias em DM Sans · Regular 400 · 12px · caixa-alta · 0,2em */
+nav a,.filtros button,.projeto__area{font-family:var(--fonte-texto);font-weight:400;font-size:12px;letter-spacing:.2em;text-transform:uppercase;line-height:1.4}
+/* ===== Ajustes do sistema tipográfico (20/10) ===== */
+/* Cormorant Garamond */
+.hero .display{font-weight:500;font-size:clamp(3rem,8vw,6.2rem)}                             /* Display · Medium 500 · 48–99px */
+.h2{font-weight:400;font-size:clamp(1.875rem,1.3rem + 2.4vw,3rem)}                           /* Título de seção · Light 300 · 30–48px */
+.subtitulo{font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.3}                    /* Subtítulo · 20–24px · 1,3 */
+.contato__end{font-size:clamp(1.125rem,.85rem + 1.4vw,1.875rem)}                              /* E-mail · 18–30px */
+.rodape__logo{font-family:var(--fonte-titulo);font-weight:600;font-size:1.45rem;line-height:1;color:var(--cor-texto)} /* Logo do rodapé = logo do menu, inclusive na cor */
+/* DM Sans */
+.fora h4{font-family:var(--fonte-texto);font-weight:400;font-size:1.125rem;line-height:1.35}  /* Título pequeno · DM Sans Regular 400 · 18px */
+.hero .lead{font-size:clamp(1rem,.95rem + .25vw,1.125rem);line-height:1.65}                  /* Abertura · 16–18px · 1,65 */
+.sobre__texto>p,.contato__texto{font-size:1rem;font-weight:400}                               /* Texto · Regular 400 · 16px */
+.diferencial p{font-size:.875rem;line-height:1.65}                                            /* Texto do Diferencial · 14px · 1,65 */
+.area p,.projeto__resumo,.fora p,.formacao li{font-size:.875rem;line-height:1.65}             /* Texto pequeno · 14px · 1,65 */
+.btn{font-size:.8125rem;line-height:1.65}                                                     /* Botão · 13px · 1,65 */
+.btn .seta{width:16px;height:16px;flex:none;display:block}
+.label-secao{letter-spacing:.2em}                                                             /* Rótulo de seção · 0,2em */
+.rodape p{font-family:var(--fonte-texto)}                                                     /* Texto do rodapé · DM Sans */
+/* DM Mono */
+.diferencial .label{font-family:var(--fonte-mono)}                                            /* Rótulo do Diferencial · DM Mono */
+
+/* ===== Padronização final do sistema tipográfico (20/10) ===== */
+body{font-size:16px;line-height:1.65}                                                         /* 9 · base 16px */
+/* Entrelinhas: 1,0 títulos grandes · 1,2 títulos médios e pequenos · 1,4 rótulos e detalhes · 1,65 texto */
+.hero .display,.h2,.area__num,.logo,.rodape__logo{line-height:1}
+.projeto__titulo,.contato__end,.fora h4{line-height:1.2}
+.subtitulo,.area h3{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.2} /* 1 · subtítulo = título de área */
+.hero .lead{font-size:clamp(1.125rem,1.05rem + .3vw,1.25rem);line-height:1.65}               /* 2 · abertura 18–20px */
+.sobre__texto>p,.contato__texto,.diferencial p{font-size:1rem;line-height:1.65}               /* 1, 2 · texto e Diferencial 16px */
+.area p,.projeto__resumo,.fora p,.formacao li,.ferramentas li{font-size:.875rem;line-height:1.65} /* 6 · texto pequeno e ferramentas 14px */
+.label-secao{line-height:1.4;color:var(--cor-rotulo)}                                         /* 10 · cor do rótulo como token */
+nav a,.filtros button,.projeto__area{line-height:1.4}
+.label:not(.label-secao),.projeto__ver,.area__ver,.copiar,.projeto .tags li{letter-spacing:.2em;line-height:1.4} /* 3 · rótulos em 0,2em */
+.diferencial .label{letter-spacing:.2em}                                                      /* Rótulo do Diferencial · DM Mono · 0,2em */
+.btn,.rodape p{line-height:1.4}
+.btn-primary{font-weight:700}                                                                  /* Botões principais (Ver projetos, LinkedIn) · Bold 700 */
+.btn-ghost{font-weight:500}                                                                   /* Botão de contorno · Medium 500 para compensar a irradiação do texto claro no fundo escuro */
+.chip,.formacao li span:last-child,.photo-slot span,.projeto__imagem span{line-height:1.4}
+.hero .status{font-size:.8125rem;letter-spacing:.02em;line-height:1.4}                       /* 4 · status igual aos detalhes mono */
+
+/* Proporção áurea no topo: mesma linguagem de linhas finas da grade e da curva de Bézier */
+.au-grid rect,.au-grid line{fill:none;stroke:var(--cor-texto-suave);stroke-opacity:.42;stroke-width:1;vector-effect:non-scaling-stroke}
+.au-espiral{fill:none;stroke:var(--cor-ciano);stroke-opacity:.3;stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:4 5}
+
+/* Subtítulo de bloco · Ferramentas, Formação, Fora das telas
+   Mesmo estilo do subtítulo + traço curto de 24 × 2px no vinho aceso (a mesma cor da lateral do Diferencial) */
+.subtitulo-bloco::after{content:"";display:block;width:24px;height:2px;margin-top:14px;background:var(--cor-vinho-aceso)}
+/* Menu: sublinhado vinho aceso na seção em que a pessoa está */
+header.nav nav a{display:inline-block;padding-bottom:6px;border-bottom:2px solid transparent;transition:border-color .3s,color .3s}
+header.nav nav a.ativo{border-bottom-color:var(--cor-vinho-aceso)}
+
+/* Áreas: mesma seta do botão do início, ajustada ao rótulo de 12px */
+.area__ver{display:inline-flex;align-items:center;gap:.5rem;align-self:flex-start}
+.area__ver .seta{width:14px;height:14px;flex:none;display:block}
+
+/* Subtítulo e subtítulo de bloco · Cormorant SemiBold 600 */
+.subtitulo,.area h3{font-weight:600}
+
+/* Fora das telas · ícones Material Design Icons (Pictogrammers, licença Apache 2.0) acima dos títulos */
+.fora__icone{display:block;width:32px;height:32px;margin-bottom:20px;color:var(--cor-ciano)}
+
+/* Rótulo de seção · 14px (os demais rótulos seguem em 12px) */
+.label-secao{font-size:14px}
+
+/* Filtros de Projetos iguais ao menu: texto aceso, hover em ciano, barra de 2px (em ciano) no ativo */
+.filtros button{color:var(--cor-texto);padding:0 0 6px;border-bottom:2px solid transparent}
+.filtros button:hover{color:var(--cor-ciano)}
+.filtros button[aria-pressed="true"]{color:var(--cor-ciano);border-bottom-color:var(--cor-ciano)} /* filtro selecionado: texto e barra em ciano */
+
+/* Logo (menu e rodapé) · Cormorant Bold 700 · 25px · 0,02em, para melhor legibilidade */
+.logo,.rodape__logo{font-weight:700;font-size:25px;letter-spacing:.02em}
+
+/* Cards de projeto: imagem, título com seta, resumo. Sem tags e sem botão; nada escondido no hover */
+.projeto__topo{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.75rem}
+.projeto__topo .projeto__titulo{margin:0}
+.projeto__seta{flex:none;width:20px;height:20px;margin-top:.3em;color:var(--cor-ciano);transition:transform .3s}
+.projeto__link:hover .projeto__seta,.projeto__link:focus-visible .projeto__seta{transform:translateX(4px)}
+.projeto__resumo{margin-bottom:0}
+
+/* Cards de projeto com contorno: imagem encostada no topo, texto com respiro interno */
+.projeto__link{border:1px solid var(--cor-linha);border-radius:2px;overflow:hidden}
+.projeto__imagem{border:0;border-bottom:1px solid var(--cor-linha);margin-bottom:0}
+.projeto__meta,.projeto__topo,.projeto__resumo{margin-left:28px;margin-right:28px}
+.projeto__meta{margin-top:24px}
+.projeto__resumo{margin-bottom:28px}
+@media (max-width:720px){.projeto__meta,.projeto__topo,.projeto__resumo{margin-left:20px;margin-right:20px}.projeto__meta{margin-top:20px}.projeto__resumo{margin-bottom:22px}}
+
+/* Abertura · DM Sans Regular 400 em cinza suave, para não disputar com o nome */
+.hero .lead{font-weight:400;color:var(--cor-texto-suave)}
+
+/* Grade de pixels · células de 24px (múltiplo de 8) */
+.hero::before{background-size:24px 24px}
+/* Brilho ciano da grade que acompanha o mouse. Só existe no triângulo acima da diagonal
+   (canto superior esquerdo → inferior direito), com transição longa na linha; o texto fica fora do efeito */
+.hero__luz{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .9s ease;--x:50%;--y:50%;
+  background-image:linear-gradient(rgba(143,211,222,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(143,211,222,.55) 1px,transparent 1px);background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(circle 170px at var(--x) var(--y),#000 0%,rgba(0,0,0,.35) 45%,transparent 100%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);
+  -webkit-mask-composite:source-in;
+  mask-image:radial-gradient(circle 170px at var(--x) var(--y),#000 0%,rgba(0,0,0,.35) 45%,transparent 100%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);
+  mask-composite:intersect}
+.hero.luz-ativa .hero__luz{opacity:1}
+@media (hover:none){.hero__luz{display:none}}
+
+/* Linhas divisórias: entre Ferramentas e Formação, e acima de Fora das telas */
+.detalhes{column-gap:0}
+.detalhes__col:first-child{padding-right:40px}
+.detalhes__col+.detalhes__col{border-left:1px solid var(--cor-linha);padding-left:40px}
+.fora{border-top:1px solid var(--cor-linha)}
+@media (max-width:720px){
+  .detalhes{row-gap:0}
+  .detalhes__col:first-child{padding-right:0;padding-bottom:40px}
+  .detalhes__col+.detalhes__col{border-left:0;padding-left:0;border-top:1px solid var(--cor-linha);padding-top:40px}
+}
+
+/* Rodapé · texto pequeno: DM Sans Regular 400 · 14px · entrelinha 1,65 */
+.rodape p{font-size:14px;letter-spacing:normal;line-height:1.65}
+
+/* Regras de cor (documentação no fim da página) */
+.regras-cor{margin-top:64px;padding-top:48px;border-top:1px solid var(--cor-linha)}
+.regras-cor dl{margin:24px 0 0;display:grid;gap:12px}
+.regras-cor dt{font-family:var(--fonte-texto);font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-rotulo);margin-bottom:4px}
+.regras-cor dd{margin:0;display:flex;gap:12px;align-items:baseline;color:var(--cor-texto-corpo);font-size:.875rem;line-height:1.65}
+.regras-cor dd strong{font-weight:500;color:var(--cor-texto)}
+.amostra{flex:none;display:inline-block;width:12px;height:12px;border-radius:2px;transform:translateY(1px)}
+
+/* Rodapé: a linha ocupa a largura toda, igual à linha do menu */
+footer.rodape{border-top:1px solid var(--cor-linha)}
+footer.rodape .inner{border-top:0}
+/* rodapé com a mesma altura do cabeçalho no computador (87,8px, contando a linha de 1px); no celular, 86px */
+footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
+/* Menu no celular: respiros menores (de ~130px para ~100px de altura) */
+@media (max-width:720px){
+  header.nav .inner{padding-block:16px 12px;row-gap:12px}
+  html{scroll-padding-top:100px}
+  footer.rodape .inner{min-height:85px;row-gap:8px} /* rodapé no celular: 86px com a linha de 1px; texto e logo centralizados */
+  /* grade de pixels do topo no celular: quadrados menores (16px; no computador, 24px), só na diagonal superior
+     (acima da linha que vai do canto superior esquerdo ao inferior direito), com transição suave e esmaecendo para baixo */
+  .hero::before{background-size:16px 16px;
+    -webkit-mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);-webkit-mask-composite:source-in;
+    mask-image:linear-gradient(180deg,#000 10%,transparent 90%),linear-gradient(to top right,transparent 42%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.7) 58%,#000 66%);mask-composite:intersect}
+}
+
+/* Modo "Mostrar tipografia": só aparece quando ligado */
+.tipo-toggle{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:100;font-family:var(--fonte-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cor-ciano);background:var(--cor-superficie);border:1px solid var(--cor-ciano);border-radius:2px;padding:10px 14px;cursor:pointer;box-shadow:0 6px 24px -8px rgba(0,0,0,.6)}
+.tipo-toggle[aria-pressed="true"]{background:var(--cor-ciano);color:var(--cor-carvao)}
+.mostrar-tipo [data-tipo]{position:relative;outline:1px dashed rgba(143,211,222,.6);outline-offset:3px}
+.mostrar-tipo [data-tipo]::before{content:attr(data-tipo);position:absolute;left:-3px;bottom:calc(100% + 5px);z-index:40;white-space:nowrap;font:500 10px/1.4 var(--fonte-mono);letter-spacing:.02em;text-transform:none;font-style:normal;color:#fff;background:var(--cor-vinho-aceso);padding:2px 6px;border-radius:2px;pointer-events:none}
+.mostrar-tipo .area__ver{opacity:1;transform:none}
+
+/* Painel de tipografia (ferramenta de revisão, não faz parte do site) */
+.tp-btn{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:120;font:500 .75rem/1 var(--fonte-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cor-ciano);background:var(--cor-superficie);border:1px solid var(--cor-ciano);border-radius:2px;padding:12px 16px;cursor:pointer;box-shadow:0 6px 24px -8px rgba(0,0,0,.7)}
+.tp-btn[aria-expanded="true"]{background:var(--cor-ciano);color:var(--cor-carvao)}
+.tp-painel{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(72px + env(safe-area-inset-bottom,0px));z-index:120;width:min(380px,calc(100vw - 32px));max-height:min(72vh,640px);overflow:auto;background:var(--cor-superficie);border:1px solid var(--cor-linha);border-radius:4px;box-shadow:0 18px 48px -12px rgba(0,0,0,.8);padding:16px;display:grid;gap:14px;font-family:var(--fonte-texto);color:var(--cor-texto)}
+.tp-painel h3{margin:0;font:600 .95rem/1.3 var(--fonte-texto)}
+.tp-painel .tp-ajuda{font-size:.8rem;line-height:1.5;color:var(--cor-texto-suave);margin:0}
+.tp-topo{display:flex;flex-wrap:wrap;gap:8px}
+.tp-chip{font:500 .72rem/1 var(--fonte-texto);letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border:1px solid var(--cor-linha);border-radius:2px;background:transparent;color:var(--cor-texto-suave);cursor:pointer}
+.tp-chip[aria-pressed="true"]{border-color:var(--cor-ciano);color:var(--cor-ciano)}
+.tp-grupo{display:grid;gap:6px}
+.tp-fonte{display:flex;justify-content:space-between;align-items:baseline;gap:8px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--cor-linha);padding:8px 0;color:var(--cor-texto);cursor:pointer;font-size:1rem}
+.tp-fonte small{font:400 .72rem var(--fonte-mono);color:var(--cor-texto-suave)}
+.tp-fonte[aria-pressed="true"]{color:var(--cor-ciano)}
+.tp-estilo{display:grid;gap:2px;width:100%;text-align:left;background:none;border:1px solid transparent;border-radius:2px;padding:8px 10px;color:var(--cor-texto);cursor:pointer}
+.tp-estilo:hover{background:rgba(255,255,255,.03)}
+.tp-estilo[aria-pressed="true"]{border-color:var(--cor-ciano);background:rgba(143,211,222,.08)}
+.tp-estilo b{font:500 .85rem/1.3 var(--fonte-texto)}
+.tp-estilo span{font:400 .72rem/1.45 var(--fonte-mono);color:var(--cor-texto-suave)}
+/* Imagem real no card: ocupa todo o espaço 4:3 */
+.projeto__imagem img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Tags dos cards de projeto (as mesmas etiquetas do topo, em DM Mono) · ficam no pé do card */
+.projeto__tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:auto 28px 28px}
+.projeto__resumo:has(+.projeto__tags){margin-bottom:20px}
+@media (max-width:720px){.projeto__tags{margin:auto 20px 22px}.projeto__resumo:has(+.projeto__tags){margin-bottom:18px}}
+.tp-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--cor-linha);padding-top:12px}
+.tp-nav span{font:400 .75rem var(--fonte-mono);color:var(--cor-texto-suave)}
+.tp-nav button{font:500 .72rem/1 var(--fonte-texto);letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border:1px solid var(--cor-linha);border-radius:2px;background:transparent;color:var(--cor-texto);cursor:pointer}
+.tp-nav button:disabled{opacity:.4;cursor:default}
+[data-hl]{outline:2px solid var(--cor-ciano)!important;outline-offset:3px;background-color:rgba(143,211,222,.10)!important;position:relative}
+[data-hl].area__ver{opacity:1!important;transform:none!important}
+[data-hl].tp-atual{outline-color:#F07AA4!important;box-shadow:0 0 0 6px rgba(240,122,164,.18)}
+</style>
+
 
 <header class="nav">
   <div class="inner">
@@ -56,7 +518,7 @@
     </svg>
     <div class="inner">
       <h1 class="display">Olá, meu nome é<br><em style="white-space:nowrap">Heloisa Borges</em></h1>
-      <div class="roles"><span class="chip">Design Gráfico</span><span class="chip">UX/UI Design</span></div>
+      <div class="roles"><span class="chip">Design Gráfico</span><span class="chip">UX/UI Design</span><span class="chip">Service Design</span></div>
       <p class="lead">Crio soluções visuais que equilibram estética, clareza e estratégia.</p>
       <div class="actions"><a class="btn btn-primary" href="#projetos">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="btn btn-ghost" href="arquivos/curriculo-heloisa-borges.pdf" target="_blank" rel="noopener" type="application/pdf" aria-label="Currículo em PDF (abre em uma nova aba)">Currículo</a></div>
       <span class="status"><i></i>Disponível para novos projetos</span>
@@ -125,7 +587,7 @@
       <div class="areas">
         <a class="area" href="#projetos" data-filtro-area="social">
           <span class="area__num">01</span>
-          <h3>Visual Design &amp; Comunicação</h3>
+          <h3>Design &amp; Comunicação Visual</h3>
           <p>Design para redes sociais, peças publicitárias, diagramação, <span style="white-space:nowrap">e-books</span>, infográficos, relatórios e apresentações.</p>
           <span class="area__ver">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         </a>
@@ -159,7 +621,7 @@
       </div>
       <div class="filtros" role="group" aria-label="Filtrar projetos por área">
         <button type="button" id="f-todos" data-filtro="todos" aria-pressed="true">Todos</button>
-        <button type="button" id="f-social" data-filtro="social" aria-pressed="false">Visual Design &amp; Comunicação</button>
+        <button type="button" id="f-social" data-filtro="social" aria-pressed="false">Design &amp; Comunicação Visual</button>
         <button type="button" id="f-imagem" data-filtro="imagem" aria-pressed="false">Edição &amp; Tratamento</button>
         <button type="button" id="f-marca" data-filtro="marca" aria-pressed="false">Branding &amp; Identidade</button>
         <button type="button" id="f-ux" data-filtro="ux" aria-pressed="false">UX/UI &amp; Service Design</button>
@@ -168,7 +630,7 @@
           <article class="projeto" data-area="social">
             <a class="projeto__link" href="#projetos">
               <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
-              <div class="projeto__meta"><span class="projeto__area">Visual Design &amp; Comunicação</span></div>
+              <div class="projeto__meta"><span class="projeto__area">Design &amp; Comunicação Visual</span></div>
               <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
               <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
             </a>
@@ -179,6 +641,7 @@
               <div class="projeto__meta"><span class="projeto__area">Edição &amp; Tratamento</span></div>
               <div class="projeto__topo"><h3 class="projeto__titulo">Galeria</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
               <p class="projeto__resumo">Retoques, correções de cor e luz, recortes e composições, com o antes e o depois de cada imagem.</p>
+              <ul class="projeto__tags" aria-label="Tags"><li class="chip">Retoque</li><li class="chip">Correção de cor</li><li class="chip">Composição</li></ul>
             </a>
           </article>
           <article class="projeto" data-area="marca">
@@ -190,11 +653,12 @@
             </a>
           </article>
           <article class="projeto" data-area="ux">
-            <a class="projeto__link" href="#projetos">
-              <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
+            <a class="projeto__link" href="mapeamento-visual.html">
+              <div class="projeto__imagem"><img src="img/mapeamento/capa-800.webp" srcset="img/mapeamento/capa-800.webp 800w, img/mapeamento/capa-1600.webp 1600w" sizes="(max-width:720px) 100vw, 490px" width="800" height="600" alt="Notebook mostrando o fluxograma do mapeamento visual, com as raias do usuário e da empresa" loading="lazy" decoding="async"></div>
               <div class="projeto__meta"><span class="projeto__area">UX/UI &amp; Service Design</span></div>
-              <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
-              <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
+              <div class="projeto__topo"><h3 class="projeto__titulo">Mapeamento Visual de Produtos</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <p class="projeto__resumo">Um padrão visual para mapear produtos que virou referência na empresa: 8 produtos mapeados e ao menos 3 riscos encontrados em cada um.</p>
+              <ul class="projeto__tags" aria-label="Tags"><li class="chip">Service Design</li><li class="chip">Design da Informação</li><li class="chip">Research</li></ul>
             </a>
           </article>
       </div>
@@ -225,7 +689,195 @@
 
 <footer class="rodape"><div class="inner"><p>© <span data-ano>2026</span> Heloisa Borges · Design Gráfico e UX/UI</p><span class="rodape__logo">Heloisa<span>.</span>Borges</span></div></footer>
 
-<script src="js/site.js"></script>
+<script>
+(function(){
+  var botoes=[].slice.call(document.querySelectorAll("[data-filtro]"));
+  var projetos=[].slice.call(document.querySelectorAll(".projeto"));
+  function filtrar(area){
+    botoes.forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.filtro===area));});
+    projetos.forEach(function(p){
+      var mostra=area==="todos"||p.dataset.area===area;
+      p.hidden=!mostra;
+      if(mostra){p.classList.remove("entrando");void p.offsetWidth;p.classList.add("entrando");}
+    });
+  }
+  botoes.forEach(function(b){b.addEventListener("click",function(){filtrar(b.dataset.filtro);});});
+  // Áreas de atuação → Projetos: para com 30px entre o menu e o rótulo da seção (o mesmo respiro do menu e do Voltar da galeria)
+  function topoProjetos(){
+    var s=document.getElementById("projetos"),t=s.querySelector(".cabecalho")||s,nav=document.querySelector("header.nav");
+    var h=nav?nav.offsetHeight+(parseFloat(getComputedStyle(nav).top)||0):0;
+    return Math.max(0,Math.round(t.getBoundingClientRect().top+window.scrollY-h-30));
+  }
+  [].slice.call(document.querySelectorAll("[data-filtro-area]")).forEach(function(a){
+    a.addEventListener("click",function(e){e.preventDefault();filtrar(a.dataset.filtroArea);document.dispatchEvent(new CustomEvent("menu:fixar"));window.scrollTo({top:topoProjetos(),behavior:"smooth"});});
+  });
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById("copiar-email"); if(!b) return;
+  b.addEventListener("click",function(){
+    var t=b.dataset.copiar;
+    function ok(){b.textContent="Copiado";setTimeout(function(){b.textContent="Copiar";},1800);}
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById("email"));var x=getSelection();x.removeAllRanges();x.addRange(r);b.textContent="Selecionado · Ctrl+C";setTimeout(function(){b.textContent="Copiar";},2400);}
+    try{navigator.clipboard.writeText(t).then(ok,sel);}catch(e){sel();}
+  });
+})();
+</script>
+<script>
+/* Destaca no menu a seção visível */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('header.nav nav a[href^="#"]'));
+  var secoes=links.map(function(a){return document.querySelector(a.getAttribute("href"));});
+  var nav=document.querySelector("header.nav"), pendente=false;
+  function atualiza(){
+    pendente=false;
+    var limite=(nav?nav.getBoundingClientRect().bottom:0)+40, atual=-1;
+    secoes.forEach(function(sec,i){ if(sec && sec.getBoundingClientRect().top<=limite) atual=i; });
+    var rod=document.querySelector("footer.rodape"); // fim da página = rodapé inteiro na tela
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4||(rod&&rod.getBoundingClientRect().bottom<=window.innerHeight+4)){
+      var c=secoes.length-1; if(secoes[c]&&secoes[c].getBoundingClientRect().top<window.innerHeight) atual=c;
+    }
+    links.forEach(function(a,i){ var on=i===atual; a.classList.toggle("ativo",on); if(on) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current"); });
+  }
+  function agenda(){ if(!pendente){pendente=true;requestAnimationFrame(atualiza);} }
+  window.addEventListener("scroll",agenda,{passive:true}); window.addEventListener("resize",agenda); atualiza();
+})();
+</script>
+<script>
+/* Menu (e o botão "Ver projetos" do topo): Sobre, Áreas e Projetos param com 30px entre o menu e o rótulo da seção
+   (o mesmo respiro de quando a pessoa volta da galeria). Contato desce até o fim da página, mostrando o rodapé.
+   Vale para o clique no menu e para quem chega de outra página já com #sobre, #areas, #projetos ou #contato no endereço. */
+(function(){
+  var RESPIRO = 30, IDS = ['sobre','areas','projetos','contato'];
+  var nav = document.querySelector('header.nav');
+  function destino(id){
+    var s = document.getElementById(id); if (!s) return null;
+    if (id === 'contato') { // desce até o rodapé aparecer por completo (fim da página)
+      var max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight), rod = document.querySelector('footer.rodape');
+      return rod ? Math.min(max, Math.max(0, Math.round(rod.getBoundingClientRect().bottom + window.scrollY - window.innerHeight))) : max;
+    }
+    var t = s.querySelector('.cabecalho') || s;
+    var h = nav ? nav.offsetHeight + (parseFloat(getComputedStyle(nav).top) || 0) : 0;
+    return Math.max(0, Math.round(t.getBoundingClientRect().top + window.scrollY - h - RESPIRO));
+  }
+  function vai(id){ var y = destino(id); if (y === null) return; document.dispatchEvent(new CustomEvent('menu:fixar')); window.scrollTo(0, y); }
+  // links do menu + botão "Ver projetos" do topo da página
+  [].slice.call(document.querySelectorAll('header.nav nav a[href^="#"], .actions a.btn-primary[href="#projetos"]')).forEach(function(a){
+    var id = a.getAttribute('href').slice(1); if (IDS.indexOf(id) < 0) return;
+    a.addEventListener('click', function(e){
+      if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault(); vai(id);
+      try { if (location.hash !== '#' + id) history.pushState(null, '', '#' + id); } catch(err){}
+    });
+  });
+  window.addEventListener('popstate', function(){ var id = location.hash.slice(1); if (IDS.indexOf(id) >= 0) vai(id); });
+  // chegando de outra página (ex.: menu da galeria): o navegador pula sozinho para a seção,
+  // então acertamos de novo quando as fontes e imagens terminam de carregar, a menos que a pessoa já tenha rolado
+  var inicial = location.hash.slice(1);
+  if (IDS.indexOf(inicial) >= 0) {
+    var mexeu = false, marca = function(){ mexeu = true; };
+    ['wheel','touchstart','keydown','mousedown'].forEach(function(ev){ window.addEventListener(ev, marca, { passive: true, once: true }); });
+    var acerta = function(){ if (!mexeu) vai(inicial); };
+    acerta(); requestAnimationFrame(acerta);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(acerta);
+    window.addEventListener('load', function(){ acerta(); setTimeout(acerta, 0); requestAnimationFrame(acerta); });
+  }
+})();
+</script>
+<script>
+/* Desenho do topo (retângulo de ouro, espiral e caneta Bézier)
+   · tamanho máximo: o desenho cresce com a tela até a âncora de baixo da curva ficar centralizada na divisória
+     entre o topo e o Sobre (o meio do espaço entre os dois blocos); a partir daí, para de crescer
+   · fica o mais perto possível do texto, sem encostar (só desloca na horizontal)
+   · em telas estreitas, onde o desenho já fica atrás do texto, nada muda */
+(function(){
+  var svg=document.querySelector(".hero .bezier"); if(!svg||!svg.getScreenCTM) return;
+  var FOLGA=24, pendente=false;
+  function pontos(){
+    var pts=[];
+    function add(el,x,y){var m=el.getScreenCTM(); if(!m) return; var q=new DOMPoint(x,y).matrixTransform(m); pts.push([q.x,q.y]);}
+    [].forEach.call(svg.querySelectorAll("path"),function(el){var L=el.getTotalLength(); for(var i=0;i<=160;i++){var q=el.getPointAtLength(L*i/160); add(el,q.x,q.y);}});
+    [].forEach.call(svg.querySelectorAll("line"),function(el){var x1=el.x1.baseVal.value,y1=el.y1.baseVal.value,x2=el.x2.baseVal.value,y2=el.y2.baseVal.value; for(var i=0;i<=30;i++) add(el,x1+(x2-x1)*i/30,y1+(y2-y1)*i/30);});
+    [].forEach.call(svg.querySelectorAll("circle, rect"),function(el){var b=el.getBoundingClientRect(); pts.push([b.left,b.top],[b.left,b.bottom],[b.right,b.top],[b.right,b.bottom]);});
+    return pts;
+  }
+  function obstaculos(){
+    // linhas reais de texto do topo (e do título do Sobre, onde a parte de baixo do desenho chega em telas largas) + chips e botões
+    var out=[];
+    [].forEach.call(document.querySelectorAll(".hero .display, .hero .chip, .hero .lead, .hero .btn, .hero .status, #sobre .cabecalho .label, #sobre .cabecalho .h2"),function(el){
+      if(el.matches(".chip, .btn")){var b=el.getBoundingClientRect(); out.push([b.left,b.top,b.right,b.bottom]); return;}
+      var tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),n;
+      while((n=tw.nextNode())){ if(!n.textContent.trim()) continue; var rg=document.createRange(); rg.selectNodeContents(n);
+        [].forEach.call(rg.getClientRects(),function(x){ if(x.width>0) out.push([x.left,x.top,x.right,x.bottom]); }); }
+    });
+    return out;
+  }
+  function limita(){
+    // escala máxima = posição da divisória ÷ altura da âncora de baixo no desenho (o desenho é alinhado no topo e à direita)
+    var hero=svg.parentNode, st=hero.querySelector(".status"), rot=document.querySelector("#sobre .cabecalho .label"), an=svg.querySelector(".bz-anchor");
+    var vb=svg.viewBox.baseVal; if(!st||!rot||!an||!vb||!vb.width) return;
+    var topo=hero.getBoundingClientRect().top, meio=(st.getBoundingClientRect().bottom+rot.getBoundingClientRect().top)/2-topo;
+    var cy=an.y.baseVal.value+an.height.baseVal.value/2, kMax=meio/cy, larguraMax=vb.width*kMax;
+    if(hero.clientWidth>larguraMax){ svg.style.width=larguraMax+"px"; svg.style.left="auto"; }
+  }
+  function ajusta(){
+    pendente=false;
+    svg.style.transform=""; svg.style.width=""; svg.style.left="";
+    if(getComputedStyle(svg).display==="none") return; // celular: desenho escondido
+    limita();
+    var pts=pontos(), obs=obstaculos(), s=Infinity;
+    for(var i=0;i<pts.length;i++){ var px=pts[i][0], py=pts[i][1];
+      for(var j=0;j<obs.length;j++){ var o=obs[j];
+        if(py<o[1]-FOLGA||py>o[3]+FOLGA) continue;          // não está na altura deste texto
+        if(px>=o[2]+FOLGA){ s=Math.min(s,px-(o[2]+FOLGA)); } // à direita do texto: pode chegar até a folga
+        else if(px>o[0]-FOLGA){ s=0; }                        // já está colado ou atrás do texto: não mexe
+      }
+    }
+    if(!isFinite(s)||s<1) return;
+    svg.style.transform="translateX("+(-Math.floor(s))+"px)";
+  }
+  function agenda(){ if(!pendente){ pendente=true; requestAnimationFrame(ajusta); } }
+  ajusta();
+  window.addEventListener("resize",agenda);
+  window.addEventListener("load",agenda);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(agenda);
+})();
+</script>
+<script>
+/* Brilho da grade: só com mouse */
+(function(){
+  var h=document.querySelector(".hero"),l=h&&h.querySelector(".hero__luz"); if(!l) return;
+  h.addEventListener("pointermove",function(e){
+    if(e.pointerType!=="mouse") return;
+    var r=h.getBoundingClientRect();
+    l.style.setProperty("--x",(e.clientX-r.left)+"px"); l.style.setProperty("--y",(e.clientY-r.top)+"px");
+    h.classList.add("luz-ativa");
+  },{passive:true});
+  h.addEventListener("pointerleave",function(){h.classList.remove("luz-ativa")});
+})();
+</script>
+<script>
+/* Altura do rodapé
+   · computador e telas intermediárias: a mesma altura do cabeçalho
+   · celular (texto e logo um embaixo do outro): 86px */
+(function(){
+  var cab=document.querySelector("header.nav"), rod=document.querySelector("footer.rodape"), inn=rod&&rod.querySelector(".inner"); if(!cab||!inn) return;
+  var CELULAR=86, txt=inn.querySelector("p"), logo=inn.querySelector(".rodape__logo"), pendente=false;
+  function iguala(){
+    pendente=false;
+    var borda=parseFloat(getComputedStyle(rod).borderTopWidth)||0;
+    var empilhado=txt&&logo&&logo.getBoundingClientRect().top>=txt.getBoundingClientRect().bottom-1;
+    var total=empilhado?CELULAR:cab.getBoundingClientRect().height;
+    inn.style.minHeight=Math.max(0,total-borda)+"px";
+  }
+  function agenda(){ if(!pendente){ pendente=true; requestAnimationFrame(iguala); } }
+  iguala();
+  window.addEventListener("resize",agenda);
+  window.addEventListener("load",agenda);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(agenda);
+})();
+</script>
 <script src="js/galeria.js"></script>
-</body>
-</html>
+
+</body></html>

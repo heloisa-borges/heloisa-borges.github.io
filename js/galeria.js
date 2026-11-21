@@ -13,9 +13,9 @@
   [].slice.call(document.querySelectorAll('[data-cena]')).forEach(pinta);
 })();
 
-/* Navegação entre o portfólio e a Galeria
-   · Ao abrir a Galeria, guarda a posição exata de onde a pessoa clicou (Áreas ou Projetos).
-   · A Galeria sempre abre no topo.
+/* Navegação entre o portfólio e as páginas internas (Galeria e cases)
+   · Ao abrir a Galeria ou um case, guarda a posição exata de onde a pessoa clicou (Áreas ou Projetos).
+   · A Galeria e os cases sempre abrem no topo.
    · "Voltar" leva ao topo da seção de onde a pessoa saiu (Áreas ou Projetos). */
 (function(){
   var CHAVE = 'galeria-origem', RESTAURAR = 'galeria-restaurar';
@@ -24,11 +24,11 @@
   function apaga(k){ try { sessionStorage.removeItem(k); } catch(e){} }
   try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch(e){}
 
-  var naGaleria = !!document.getElementById('galeria') && !document.getElementById('projetos');
+  var naGaleria = !!document.querySelector('#galeria, #case') && !document.getElementById('projetos');
 
   if (!naGaleria) {
-    // Portfólio: guarda a origem ao clicar em qualquer link para a Galeria
-    [].slice.call(document.querySelectorAll('a[href="galeria.html"]')).forEach(function(a){
+    // Portfólio: guarda a origem ao clicar em qualquer link para a Galeria ou para um case
+    [].slice.call(document.querySelectorAll('a[href="galeria.html"], a[href="mapeamento-visual.html"]')).forEach(function(a){
       a.addEventListener('click', function(){
         grava(CHAVE, { y: window.scrollY, de: a.closest('#areas') ? 'areas' : 'projetos' });
       });
@@ -73,7 +73,7 @@
 (function(){
   var btn = document.querySelector('.topo-btn'), area = document.querySelector('.topo-area'); if (!btn || !area) return;
   var prog = btn.querySelector('.prog'), C = 2 * Math.PI * 24; prog.style.strokeDasharray = C;
-  var cab = document.querySelector('#galeria .cabecalho') || document.querySelector('.hero'), card = document.querySelector('.trabalho');
+  var cab = document.querySelector('#galeria .cabecalho, #case .cabecalho') || document.querySelector('.hero'), card = document.querySelector('.trabalho');
   // borda direita do conteúdo: o card da galeria ou, na página principal, a coluna de texto
   function direita(){
     if (card) return card.getBoundingClientRect().right;
