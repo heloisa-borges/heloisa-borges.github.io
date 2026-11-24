@@ -124,6 +124,8 @@ footer .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:f
 .contato-sec{background:var(--cor-superficie)}
 .contato{max-width:42rem;margin:0 auto;text-align:center;justify-items:center}
 .contato__texto{color:var(--cor-texto-suave);line-height:1.7;max-width:30rem}
+.contato__texto .grupo{display:inline-block} /* funil: cada bloco quebra inteiro */
+@media (max-width:720px){.contato__texto br{display:none}} /* no celular a frase corre e forma o funil */
 .contato__email{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:.5rem 1rem}
 .contato__end{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.3rem,.9rem + 1.5vw,2rem);overflow-wrap:anywhere;border-bottom:1px solid var(--cor-linha);user-select:all}
 .copiar{font:inherit;background:none;border:0;cursor:pointer;font-family:var(--fonte-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano)}

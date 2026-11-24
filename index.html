@@ -188,6 +188,8 @@ footer .inner{padding-block:32px;border-top:1px solid var(--cor-linha);display:f
 .contato-sec{background:var(--cor-superficie)}
 .contato{max-width:42rem;margin:0 auto;text-align:center;justify-items:center}
 .contato__texto{color:var(--cor-texto-suave);line-height:1.7;max-width:30rem}
+.contato__texto .grupo{display:inline-block} /* funil: cada bloco quebra inteiro */
+@media (max-width:720px){.contato__texto br{display:none}} /* no celular a frase corre e forma o funil */
 .contato__email{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:.5rem 1rem}
 .contato__end{font-family:var(--fonte-titulo);font-weight:500;font-size:clamp(1.3rem,.9rem + 1.5vw,2rem);overflow-wrap:anywhere;border-bottom:1px solid var(--cor-linha);user-select:all}
 .copiar{font:inherit;background:none;border:0;cursor:pointer;font-family:var(--fonte-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-ciano)}
@@ -670,7 +672,7 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
       <div class="contato">
         <span class="label label-secao">Contato</span>
         <h2 class="h2" id="h-contato">Vamos criar algo<br><span>juntos?</span></h2>
-        <p class="contato__texto">Estou em busca de oportunidades em Design Gráfico e Digital: Product Design, UX/UI, Service Design, Visual Design, Branding e Social&nbsp;Media.</p>
+        <p class="contato__texto">Estou em busca de oportunidades em <span class="grupo">Design Gráfico e Digital:</span><br> <span class="grupo">Product Design,</span> <span class="grupo">UX/UI, Service Design, Visual Design,</span> <span class="grupo">Branding e Social&nbsp;Media.</span></p>
         <div class="contato__email">
           <span class="contato__end" id="email">heloisa.vieira.borges@gmail.com</span>
           <button type="button" class="copiar" id="copiar-email" data-copiar="heloisa.vieira.borges@gmail.com">Copiar</button>
