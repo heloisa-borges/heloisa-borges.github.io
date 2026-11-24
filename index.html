@@ -592,28 +592,22 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
         <h2 class="h2" id="h-areas">Do estratégico ao visual,<br><span>com cuidado em cada detalhe.</span></h2>
       </div>
       <div class="areas">
-        <a class="area" href="#projetos" data-filtro-area="social">
+        <a class="area" href="#projetos" data-filtro-area="marca">
           <span class="area__num">01</span>
-          <h3>Design &amp; Comunicação Visual</h3>
-          <p>Design para redes sociais, peças publicitárias, diagramação, <span style="white-space:nowrap">e-books</span>, infográficos, relatórios e apresentações.</p>
+          <h3>Branding &amp; Visual Design</h3>
+          <p>Identidade visual, logotipos, manual de marca, design para redes sociais, peças publicitárias, diagramação, <span style="white-space:nowrap">e-books</span>, infográficos e&nbsp;apresentações.</p>
           <span class="area__ver">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="area" href="galeria.html">
+        <a class="area" href="galeria.html" hidden> <!-- oculta por enquanto: Edição & Tratamento -->
           <span class="area__num">02</span>
           <h3>Edição &amp; Tratamento</h3>
           <p>Retoque e correção de fotografias, ajustes de cor, luz e contraste, recorte, manipulação de imagens e composição visual.</p>
           <span class="area__ver">Ver galeria <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a class="area" href="#projetos" data-filtro-area="marca">
-          <span class="area__num">03</span>
-          <h3>Branding &amp; Identidade</h3>
-          <p>Logotipos, símbolos, paleta de cores, tipografia, sistemas visuais, aplicações, manual de marca, posicionamento e experiência do cliente.</p>
-          <span class="area__ver">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        </a>
         <a class="area" href="#projetos" data-filtro-area="ux">
-          <span class="area__num">04</span>
+          <span class="area__num">02</span>
           <h3>UX/UI &amp; Service Design</h3>
-          <p>Arquitetura de informação, prototipagem, design system, mapeamento de jornadas, pesquisa com usuários e service blueprints.</p>
+          <p>Arquitetura de informação, prototipagem, design system, mapeamento de jornadas, pesquisa com usuários e service&nbsp;blueprints.</p>
           <span class="area__ver">Ver projetos <svg class="seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
         </a>
       </div>
@@ -628,35 +622,26 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
       </div>
       <div class="filtros" role="group" aria-label="Filtrar projetos por área">
         <button type="button" id="f-todos" data-filtro="todos" aria-pressed="true">Todos</button>
-        <button type="button" id="f-social" data-filtro="social" aria-pressed="false">Design &amp; Comunicação Visual</button>
-        <button type="button" id="f-imagem" data-filtro="imagem" aria-pressed="false">Edição &amp; Tratamento</button>
-        <button type="button" id="f-marca" data-filtro="marca" aria-pressed="false">Branding &amp; Identidade</button>
+        <button type="button" id="f-marca" data-filtro="marca" aria-pressed="false">Branding &amp; Visual Design</button>
+        <button type="button" id="f-imagem" data-filtro="imagem" aria-pressed="false" hidden>Edição &amp; Tratamento</button> <!-- oculto por enquanto -->
         <button type="button" id="f-ux" data-filtro="ux" aria-pressed="false">UX/UI &amp; Service Design</button>
       </div>
       <div class="projetos">
-          <article class="projeto" data-area="social">
+          <article class="projeto" data-area="marca">
             <a class="projeto__link" href="#projetos">
               <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
-              <div class="projeto__meta"><span class="projeto__area">Design &amp; Comunicação Visual</span></div>
+              <div class="projeto__meta"><span class="projeto__area">Branding &amp; Visual Design</span></div>
               <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
               <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
             </a>
           </article>
-          <article class="projeto" data-area="imagem">
+          <article class="projeto" data-area="imagem" data-oculto hidden> <!-- Galeria: oculta por enquanto -->
             <a class="projeto__link" href="galeria.html">
               <div class="projeto__imagem projeto__imagem--galeria" aria-hidden="true"><div class="metade"><div data-cena="retrato" data-estado="antes"></div></div><div class="metade"><div data-cena="retrato"></div></div></div>
               <div class="projeto__meta"><span class="projeto__area">Edição &amp; Tratamento</span></div>
               <div class="projeto__topo"><h3 class="projeto__titulo">Galeria</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
               <p class="projeto__resumo">Retoques, correções de cor e luz, recortes e composições, com o antes e o depois de cada imagem.</p>
               <ul class="projeto__tags" aria-label="Tags"><li class="chip">Retoque</li><li class="chip">Correção de cor</li><li class="chip">Composição</li></ul>
-            </a>
-          </article>
-          <article class="projeto" data-area="marca">
-            <a class="projeto__link" href="#projetos">
-              <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
-              <div class="projeto__meta"><span class="projeto__area">Branding &amp; Identidade</span></div>
-              <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
-              <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
             </a>
           </article>
           <article class="projeto" data-area="ux">
@@ -666,6 +651,22 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
               <div class="projeto__topo"><h3 class="projeto__titulo">Mapeamento Visual de Produtos</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
               <p class="projeto__resumo">Um padrão visual para mapear produtos que virou referência na empresa: 8 produtos mapeados e ao menos 3 riscos encontrados em cada um.</p>
               <ul class="projeto__tags" aria-label="Tags"><li class="chip">Service Design</li><li class="chip">Design da Informação</li><li class="chip">Research</li></ul>
+            </a>
+          </article>
+          <article class="projeto" data-area="marca">
+            <a class="projeto__link" href="#projetos">
+              <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
+              <div class="projeto__meta"><span class="projeto__area">Branding &amp; Visual Design</span></div>
+              <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
+            </a>
+          </article>
+          <article class="projeto" data-area="ux">
+            <a class="projeto__link" href="#projetos">
+              <div class="projeto__imagem"><span>imagem do projeto · 4:3</span></div>
+              <div class="projeto__meta"><span class="projeto__area">UX/UI &amp; Service Design</span></div>
+              <div class="projeto__topo"><h3 class="projeto__titulo">Título do projeto</h3><svg class="projeto__seta" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+              <p class="projeto__resumo">Resumo do projeto em uma ou duas frases: o desafio, o que foi feito e o resultado.</p>
             </a>
           </article>
       </div>
@@ -703,7 +704,7 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
   function filtrar(area){
     botoes.forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.filtro===area));});
     projetos.forEach(function(p){
-      var mostra=area==="todos"||p.dataset.area===area;
+      var mostra=!p.hasAttribute("data-oculto")&&(area==="todos"||p.dataset.area===area);
       p.hidden=!mostra;
       if(mostra){p.classList.remove("entrando");void p.offsetWidth;p.classList.add("entrando");}
     });
