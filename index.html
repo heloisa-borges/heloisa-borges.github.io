@@ -1,5 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <title>Portfólio - Heloisa Borges</title>
+<script>/* tema: escuro é o padrão; se a pessoa escolheu o claro, ele é lembrado */try{if(localStorage.getItem("tema")==="claro")document.documentElement.setAttribute("data-tema","claro")}catch(e){}</script>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -480,6 +481,49 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
 [data-hl]{outline:2px solid var(--cor-ciano)!important;outline-offset:3px;background-color:rgba(143,211,222,.10)!important;position:relative}
 [data-hl].area__ver{opacity:1!important;transform:none!important}
 [data-hl].tp-atual{outline-color:#F07AA4!important;box-shadow:0 0 0 6px rgba(240,122,164,.18)}
+
+/* ===== Tema claro + chave sol/lua =====
+   Escuro é o padrão. No claro, as cores de destaque se invertem:
+   vinho aceso nos destaques (onde o escuro usa ciano) e ciano escuro nos detalhes (onde o escuro usa vinho). */
+:root[data-tema="claro"]{
+  --cor-carvao:#F7F6F9; --cor-superficie:#FFFFFF; --cor-linha:#E3E1E8;
+  --cor-vinho-aceso:#1F7A88;
+  --cor-ciano:#8A1F5C; --cor-ciano-hover:#6E1849; --cor-ciano-suave:rgba(138,31,92,.08);
+  --cor-texto:#17161B; --cor-texto-suave:#5E5B67; --cor-rotulo:#6E6A78; --cor-texto-corpo:#2E2C35;
+  color-scheme:light;
+}
+[data-tema="claro"] .label-secao{color:var(--cor-rotulo)}
+[data-tema="claro"] header.nav{background:rgba(247,246,249,.88)}
+[data-tema="claro"] .hero{background:radial-gradient(70% 110% at 100% 0%, rgba(31,122,136,.20) 0%, rgba(31,122,136,.09) 38%, transparent 72%), var(--cor-carvao)}
+[data-tema="claro"] .hero::before{background-image:linear-gradient(rgba(23,22,27,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(23,22,27,.07) 1px,transparent 1px)}
+[data-tema="claro"] .hero__luz{background-image:linear-gradient(rgba(138,31,92,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(138,31,92,.35) 1px,transparent 1px)}
+[data-tema="claro"] .photo-slot{background:radial-gradient(ellipse 82% 62% at 50% 38%,rgba(255,255,255,.6) 0%,rgba(255,255,255,.25) 45%,transparent 76%),linear-gradient(160deg,rgba(31,122,136,.20) 0%,#FFFFFF 55%,#F7F6F9 100%)}
+[data-tema="claro"] .projeto__imagem{background:linear-gradient(135deg,rgba(31,122,136,.20),#FFFFFF 60%,#ECEAF0)}
+[data-tema="claro"] .btn-primary{box-shadow:0 0 22px -8px rgba(138,31,92,.6)}
+[data-tema="claro"] .btn-ghost{box-shadow:inset 0 0 0 1px var(--cor-texto-suave)}
+[data-tema="claro"] .btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--cor-texto)}
+[data-tema="claro"] .status i{box-shadow:0 0 10px rgba(138,31,92,.45)}
+
+/* chave: no fim do menu, depois de uma linha fina; no celular, na linha do logo */
+header.nav nav{margin-left:auto}
+.tema{position:relative;flex:none;margin-left:28px;width:62px;height:30px;padding:0 7px;border:1px solid var(--cor-linha);border-radius:15px;background:var(--cor-superficie);color:var(--cor-texto-suave);display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.tema::before{content:"";position:absolute;left:-15px;top:50%;width:1px;height:22px;background:var(--cor-linha);transform:translateY(-50%)}
+.tema__icone{width:14px;height:14px}
+.tema__bola{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--cor-ciano);color:var(--cor-carvao);display:grid;place-items:center;transform:translateX(32px);transition:transform .25s ease,background-color .25s ease}
+.tema__bola svg{width:13px;height:13px;grid-area:1/1}
+.tema__sol{display:none}
+[data-tema="claro"] .tema__bola{transform:translateX(0)}
+[data-tema="claro"] .tema__sol{display:block}
+[data-tema="claro"] .tema__lua{display:none}
+.tema:hover{border-color:var(--cor-texto-suave)}
+.tema:focus-visible{outline:none;box-shadow:0 0 0 2px var(--cor-carvao),0 0 0 4px var(--cor-ciano)}
+@media (prefers-reduced-motion:reduce){.tema__bola{transition:none}}
+@media (max-width:720px){
+  header.nav .logo{order:1}
+  .tema{order:2;margin-left:auto}
+  .tema::before{display:none}
+  header.nav nav{order:3;flex-basis:100%;margin-left:0}
+}
 </style>
 </head>
 <body>
@@ -489,6 +533,15 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
   <div class="inner">
     <a class="logo" href="#inicio">Heloisa<span>.</span>Borges</a>
     <nav aria-label="Principal"><ul><li><a href="#sobre">Sobre</a></li><li><a href="#areas">Áreas</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#contato">Contato</a></li></ul></nav>
+    <button class="tema" type="button" role="switch" aria-checked="false" aria-label="Tema claro" title="Alternar entre tema escuro e claro">
+      <svg class="tema__icone" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-sol"/></svg>
+      <svg class="tema__icone" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-lua"/></svg>
+      <span class="tema__bola" aria-hidden="true"><svg class="tema__lua" viewBox="0 0 24 24"><use href="#ic-lua"/></svg><svg class="tema__sol" viewBox="0 0 24 24"><use href="#ic-sol"/></svg></span>
+    </button>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+      <symbol id="ic-sol" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+      <symbol id="ic-lua" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    </defs></svg>
   </div>
 </header>
 
@@ -887,4 +940,18 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
 </script>
 <script src="js/galeria.js"></script>
 
+<script>
+/* Chave de tema: alterna escuro/claro e guarda a escolha neste navegador */
+(function(){
+  var raiz=document.documentElement, bt=document.querySelector(".tema"); if(!bt) return;
+  function mostrar(){var claro=raiz.getAttribute("data-tema")==="claro";bt.setAttribute("aria-checked",claro?"true":"false");}
+  bt.addEventListener("click",function(){
+    var claro=raiz.getAttribute("data-tema")!=="claro";
+    if(claro) raiz.setAttribute("data-tema","claro"); else raiz.removeAttribute("data-tema");
+    try{localStorage.setItem("tema",claro?"claro":"escuro")}catch(e){}
+    mostrar();
+  });
+  mostrar();
+})();
+</script>
 </body></html>
