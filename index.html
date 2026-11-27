@@ -482,29 +482,38 @@ footer.rodape .inner{padding-block:0;min-height:86.8px;align-content:center}
 [data-hl].area__ver{opacity:1!important;transform:none!important}
 [data-hl].tp-atual{outline-color:#F07AA4!important;box-shadow:0 0 0 6px rgba(240,122,164,.18)}
 
+
+/* contraste de linhas: divisórias na cor de linha, contornos de cards e tags um tom mais forte */
+:root{--cor-linha:#3A3742;--cor-contorno:#46424F}
+.chip,.fora__itens>div,.projeto__link,.projeto__imagem{border-color:var(--cor-contorno)}
+.areas{background:var(--cor-contorno);border-color:var(--cor-contorno)}
 /* ===== Tema claro + chave sol/lua =====
    Escuro é o padrão. No claro, as cores de destaque se invertem:
    vinho aceso nos destaques (onde o escuro usa ciano) e ciano escuro nos detalhes (onde o escuro usa vinho). */
 :root[data-tema="claro"]{
-  --cor-carvao:#F4F1EC; --cor-superficie:#FBFAF7; --cor-linha:#E4DED5; /* papel quente: menos brilho na troca do escuro para o claro */
+  --cor-carvao:#FDFDFC; --cor-superficie:#F4F1EC; --cor-linha:#C9BFB1; --cor-contorno:#BCB1A1; /* fundo quase branco, cards e faixas em papel quente */
   --cor-vinho-aceso:#1F7A88;
   --cor-ciano:#8A1F5C; --cor-ciano-hover:#6E1849; --cor-ciano-suave:rgba(138,31,92,.08);
-  --cor-texto:#17161B; --cor-texto-suave:#5E5B67; --cor-rotulo:#6E6A78; --cor-texto-corpo:#2E2C35;
+  --cor-texto:#121014; --cor-texto-suave:#4E4B55; --cor-rotulo:#6E6A78; --cor-texto-corpo:#2E2C35;
   color-scheme:light;
 }
 [data-tema="claro"] .label-secao{color:var(--cor-rotulo)}
-[data-tema="claro"] header.nav{background:rgba(244,241,236,.88)}
-[data-tema="claro"] .hero{background:radial-gradient(70% 110% at 100% 0%, rgba(31,122,136,.20) 0%, rgba(31,122,136,.09) 38%, transparent 72%), var(--cor-carvao)}
+[data-tema="claro"] header.nav{background:rgba(253,253,252,.9)}
+[data-tema="claro"] .rodape{background:#FDFDFC}
+/* elevação suave nos cards e tags do tema claro */
+[data-tema="claro"] .fora__itens>div,[data-tema="claro"] .projeto__link,[data-tema="claro"] .areas,[data-tema="claro"] .diferencial{box-shadow:0 1px 2px rgba(18,16,20,.05),0 8px 24px -6px rgba(18,16,20,.08)}
+[data-tema="claro"] .chip{box-shadow:0 1px 2px rgba(18,16,20,.06)}
+[data-tema="claro"] .hero{background:radial-gradient(70% 110% at 100% 0%, rgba(31,122,136,.20) 0%, rgba(31,122,136,.09) 38%, transparent 72%), linear-gradient(180deg,#F4F1EC 0%,#F4F1EC 30%,#FDFDFC 100%)} /* topo em papel, sumindo até o Sobre */
 [data-tema="claro"] .hero::before{background-image:linear-gradient(rgba(23,22,27,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(23,22,27,.07) 1px,transparent 1px)}
 [data-tema="claro"] .hero__luz{background-image:linear-gradient(rgba(138,31,92,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(138,31,92,.35) 1px,transparent 1px)}
 /* a foto fica igual à do escuro: fundo, contorno e cantos decorativos nas cores do escuro */
 [data-tema="claro"] .photo-slot{background-color:#121116;--cor-carvao:#121116;--cor-superficie:#1C1B21;--cor-linha:#2A2830;--cor-ciano:#8FD3DE;--cor-texto-suave:#9C99A6}
-[data-tema="claro"] .projeto__imagem{background:linear-gradient(135deg,rgba(31,122,136,.20),#FBFAF7 60%,#EAE5DD)}
+[data-tema="claro"] .projeto__imagem{background:linear-gradient(135deg,rgba(31,122,136,.20),#FDFDFC 60%,#EAE5DD)}
 [data-tema="claro"] .btn-primary{box-shadow:0 0 22px -8px rgba(138,31,92,.6)}
 [data-tema="claro"] .btn-ghost{box-shadow:inset 0 0 0 1px var(--cor-texto-suave)}
 [data-tema="claro"] .btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--cor-texto)}
 [data-tema="claro"] .status i{box-shadow:0 0 10px rgba(138,31,92,.45)}
-[data-tema="claro"] .topo-btn{background:rgba(244,241,236,.92)}
+[data-tema="claro"] .topo-btn{background:rgba(253,253,252,.92)}
 
 /* chave: no fim do menu, depois de uma linha fina; no celular, na linha do logo */
 header.nav nav{margin-left:auto}
